@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400&family=Righteous&display=swap');
+  h1{
+    color: #40798C;
+    font-family: 'Righteous';
+    font-size: 32pt
+
+  }
+  h2{
+    color: #77A6B6;
+    font-family: 'Red Hat Display';
+    padding-left: 50px;
+  }
+  label{
+    color: #77A6B6;
+    font-family: 'Red Hat Display';
+    padding-left: 50px;
+  }
+  p{
+    color: #77A6B6;
+    font-family: 'Red Hat Display';
+    padding-left: 50px;
+  }
+  body {
+    background-color: #f8f7f1;
+  }
+.header {
+  position: relative; 
+  top: -28px;
+  background: #CFD7C7;
+  color: #40798C;
+  margin: 0 -1em;
+  height: 50px;
+}
+button {
+  min-width: 50px;
+  padding: 7px 7px 7px;
+  font-size: 14px;
+  font-weight:900px;
+  line-height: 1;
+  border-radius: 200px;
+  font-family: 'Red Hat Display';
+  letter-spacing: 2px;
+  text-align: center;
+  height: 50px;
+  position:relative; 
+  top:50%;
+}
+.button_header {
+  background-color: #f8f7f1;
+  color: #40798C;
+  border: 2px solid #CFD7C7;
+  float: right;
+  position:relative; 
+  top:50%;
+}
+.button_header:hover {
+  background-color: #CFD7C7;
+  color: #f8f7f1;
+}
+.button_register {
+  background-color: #f8f7f1;
+  color: #40798C;
+  border: 2px solid #CFD7C7;
+  left: 30%
+
+}
+.button_register:hover {
+  background-color: #CFD7C7;
+  color: #f8f7f1;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: #40798C;
+}
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4D7298;
+  font-family: 'Righteous';
+  font-weight:900px;
+  font-size: 72px;
+}
+.boxed_l {
+  background-color: #eceee5fa;
+  position: absolute;
+  top: 50%;
+  left:10%;
+  opacity: 0.8;
+  height: 300px;
+  width: 300px;
+  color: #4D7298;
+  font-family: 'Red Hat Display';
+}
+.boxed_m {
+  background-color: #eceee5fa;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  opacity: 0.8;
+  height: 300px;
+  width: 300px;
+  color: #4D7298;
+  font-family: 'Red Hat Display';
+  padding-top: 25px;
+  line-height: 0.8;
+}
+.boxed_r {
+  background-color: #eceee5fa;
+  position: absolute;
+  top: 50%;
+  left:70%;
+  opacity: 0.8;
+  height: 300px;
+  width: 300px;
+  color: #4D7298;
+  font-family: 'Red Hat Display';
+  text-align: center;
+}
+.boxed_c {
+  background-color: #CFD7C7;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  opacity: 0.5;
+  height: 550px;
+  width: 450px;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
