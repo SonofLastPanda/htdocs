@@ -112,56 +112,70 @@
     font-size: 72px;
   }
   .boxed_l {
-    background-color: #eceee5fa;
+    background-color: #9dc3c2;
     position:fixed;
     top: 50%;
     left:10%;
-    opacity: 0.8;
+    opacity: 0.4;
     height: 300px;
     width: 300px;
-    color: #4D7298;
+    color: #011638;
     font-family: 'Red Hat Display';
     padding-top: 25px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:25px;
+    border-radius:30px;
+    font-weight:bold;
   }
   .boxed_m {
-    background-color: #eceee5fa;
+    background-color: #9dc3c2;
     position: fixed;
     top: 50%;
     left: 40%;
-    opacity: 0.8;
+    opacity: 0.4;
     height: 300px;
     width: 300px;
     color: #4D7298;
     font-family: 'Red Hat Display';
     padding-top: 25px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:25px;
     line-height: 0.8;
+    border-radius:30px;
   }
   .boxed_r {
-    background-color: #eceee5fa;
+    background-color: #9dc3c2;
     position: fixed;
     top: 50%;
     left:70%;
-    opacity: 0.8;
+    opacity: 0.4;
     height: 300px;
     width: 300px;
     color: #4D7298;
     font-family: 'Red Hat Display';
     text-align: center;
     padding-top: 25px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:25px;
+    border-radius:30px;
 }
 .boxed_c {
   background-color: #CFD7C7;
-  position: absolute;
-  top: 20%;
-  left: 30%;
+  position: fixed;
+  top: 100px;
+  left: 34%;
   opacity: 0.5;
   height: 550px;
   width: 450px;
   text-align: left;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 15px;
+  padding-top: 17px;
   padding-bottom: 15px;
+  border-radius:30px;
 }
 .body_frontpage{
   opacity:0.2;
