@@ -9,10 +9,11 @@
   </head>
   <body>
   <div class="container">
+  <img src="map_background.png" class=body_frontpage>
     <div class= "boxed_login">
       <form action="login.php">
       <div>
-      <h1 style= "text-align: center;">Login</h1>
+      <h1 style= "text-align: center; margin-right:10px;">Login</h1>
       <p>Please fill in the form below:</p>
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required><br><br>
@@ -20,8 +21,8 @@
         <input type="password" placeholder="Enter Password" name="psw" required>
       </label><br><br>
         <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
-      <div><form method="get" action="index.php"><button type = "submit" id="myButton" class="button button_register";>CANCEL</form>
-      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "float: center;">LOGIN</button>
+      <div>
+      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:52px  ;">LOGIN</button>
       </div>
       </div>
       </form>

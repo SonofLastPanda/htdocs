@@ -9,6 +9,7 @@
   </head>
   <body>
   <div class="container">
+  <img src="map_background.png" class=body_frontpage>
     <div class="boxed_c">
       <form action="/performreg.php">
       <div>
@@ -34,8 +35,8 @@
       <label><b>Vaccine type:</b></label>
       <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br>
       <p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue">Terms & Privacy</a>.</p>
-      <div><form method="get" action="index.php"><button type = "submit" id="myButton" class="button button_register";>CANCEL</form>
-      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "float: center;">REGISTER</button>
+      <div>
+      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:43px;">REGISTER</button>
       </div></div>
       </form>
     </div>
