@@ -168,7 +168,22 @@
   top: 100px;
   left: 34%;
   opacity: 0.5;
-  height: 550px;
+  height: 570px;
+  width: 450px;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 17px;
+  padding-bottom: 15px;
+  border-radius:30px;
+}
+.boxed_login {
+  background-color: #CFD7C7;
+  position: fixed;
+  top: 100px;
+  left: 34%;
+  opacity: 0.5;
+  height: 315px;
   width: 450px;
   text-align: left;
   padding-left: 15px;
