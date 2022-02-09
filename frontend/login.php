@@ -18,7 +18,9 @@
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required><br><br>
         <label for="psw"><b>Password    </b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="password" placeholder="Enter Password" name="psw" required><br><br>
+        <label for ="admin"><b>Admin:</b></label>
+        <input type="checkbox" id="admin" name="admin" value="Admin" style="border:2px;">
       </label><br><br>
         <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
       <div>
