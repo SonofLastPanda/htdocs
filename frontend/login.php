@@ -13,7 +13,7 @@
       <form action="login.php">
       <div>
       <h1 style= "text-align: center;">Login</h1>
-      <p>Please fill in this form below:</p>
+      <p>Please fill in the form below:</p>
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required><br><br>
         <label for="psw"><b>Password    </b></label>
