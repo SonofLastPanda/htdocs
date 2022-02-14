@@ -135,3 +135,8 @@ LOGIN_REDIRECT_URL = '/' #for the homepage
 
 # for style.css
 static_root = os.path.join(BASE_DIR, 'static')
+
+#för allmänna static files som inte är i särskild app
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

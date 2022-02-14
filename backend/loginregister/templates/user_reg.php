@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"/> Connecting to the css file named styles.css
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"/> Connecting to the css file named styles.css -->
     <div class="header">
     <!-- <h1><img src="/Users/ellensiggstedt/Desktop/Informationshanteringssystem/IMS Projekt/CoTRACK/frontend/logo1.2.png" alt="BatGirl logo" width="50" height="50" style= "margin-bottom: -10px; margin-left: 30px; margin-right: 0px;">CoTRACK-19<form method="get" action="index.php"><button type="submit" id="myButton" class="button button_header";>HOME</form></h1>-->
     </div>
