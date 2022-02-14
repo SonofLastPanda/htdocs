@@ -1,0 +1,15 @@
+<h2>Enter your username and password</h2>
+<form action="" method="post">
+    {% csrf_token %} 
+    <label>Username:</label>
+    <input type="text" name="username"><br>
+    <label>Password:</label>
+    <input type="text" name="password"><br>
+    <input type="submit" value="Log in"><br>
+</form>
+
+<!-- {% if username %}
+<h1>hello {{username}}</h1>
+{% else %}
+<h1>    Hello world</h1>
+{% endif %} -->
