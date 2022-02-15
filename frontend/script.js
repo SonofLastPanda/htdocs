@@ -9,6 +9,7 @@
 //   });
 // </script>
 
+
 // document.querySelector() is used to select an element from the document using its ID
 let captchaText = document.querySelector('#captcha');
 var ctx = captchaText.getContext("2d");
@@ -30,6 +31,7 @@ for (let i = 1; i <= 7; i++) {
 }
 var c = emptyArr.join('');
 ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
+ctx.font = '68px Red Hat Display';
 
 // This event listener is stimulated whenever the user press the "Enter" button
 // "Correct!" or "Incorrect, please try again" message is

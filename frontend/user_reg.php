@@ -40,7 +40,9 @@
       </div></div>
       <div class="boxed_c_r">
         <p>Please validate by submitting your CAPTCHA:</p>
-        <canvas id="captcha" style="position: relative; top: -45px;">captcha text</canvas>
+        <div class="captchabackground">
+        <span style="font-family: 'Red Hat Display'; top:-45px;">&nbsp;</span>
+        <canvas id="captcha">captcha text</canvas> </div>
         <div><p style="position: relative;top: -125px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -162px; left: 205px;"><div>
         <div><button id="submitButton" type="submit" class= "button button_register" style="position:relative; left:55px;top:-130px;">SUBMIT CAPTCHA</button><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:55px; top:-131px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
@@ -52,3 +54,4 @@
 </div>
 </div>
 </html>
+<!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->

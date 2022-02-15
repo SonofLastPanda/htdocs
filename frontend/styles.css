@@ -74,6 +74,11 @@
     color: #40798C;
     background-color: #f8f7f1;
   }
+  canvas{
+    font-family: 'Red Hat Display';
+    position: relative; 
+    top: -45px;
+  }
   .header {
     position: fixed; 
     left:0px;
@@ -275,9 +280,17 @@
    left: 0;
    right: 0;
   }
+  #captchabackground{
+    height:220px;
+    width:250px;
+    background-color:#f8f7f1;
+    border-radius:30px;
+    text-align:center;
+  }
   label {
     text-align:right;
     padding-right:20px;
     display:inline-block;
     min-width: 150px;
   }
+
