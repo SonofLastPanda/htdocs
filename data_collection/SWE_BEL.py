@@ -15,30 +15,32 @@ session.mount('http://', adapter)
 session.mount('https://', adapter)
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36'}
 
-ID = "SWE_AUT"
+ID = "SWE_BEL"
 FROM = "Sweden"
-To = "Austria"
+To = "Belgium"
 
 # Boarding
-URL = "https://www.austria.info/en/service-and-facts/coronavirus-information/entry-regulations"
+URL = "https://www.info-coronavirus.be/en/travels/"
 html_text = requests.get(URL, headers = headers)
 soup = BeautifulSoup(html_text.content, 'lxml')
-boarding = soup.find('div', class_ = 'u-text content-wrapper is-aligned-left has-theme-black')
-boarding = boarding.find_all('li')
-boarding = [i.text for i in boarding]
-boarding = "\n".join(boarding)
-print(boarding)
+boarding = "NULL"
 
 # Quarantine
-quarantine = "Only needed for entry without vaccination / recovery proof"
+URL = "https://www.info-coronavirus.be/en/quarantine-isolation/"
+html_text = requests.get(URL, headers = headers)
+soup = BeautifulSoup(html_text.content, 'lxml')
+quarantine = "NULL"
 
 # Vaccine
-vaccine = "Yes"
+vaccine = "NULL"
+
 
 # Regulation
+# https://www.info-coronavirus.be/en/covidsafeticket/
 regulation = "NULL"
 
 # Facemask
+# https://www.info-coronavirus.be/en/facemask/
 facemask = "NULL"
 
 # Public Transportation
