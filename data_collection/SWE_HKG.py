@@ -1,7 +1,7 @@
 # Format
 # {ID,FROM,TO,Boarding,Quarantine,Vaccine,Regulation,Face Mask (Regulation),Public Transportation (Regulation)
 #   ,Businesses (Regulation),Restaurants (Regulation),Reminder}																
-
+'''
 import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
@@ -14,6 +14,8 @@ adapter = HTTPAdapter(max_retries=retry)
 session.mount('http://', adapter)
 session.mount('https://', adapter)
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36'}
+'''
+from retry import *
 
 ID = "SWE_HKG"
 FROM = "Sweden"
@@ -52,13 +54,13 @@ vaccine = "Yes"
 regulation = "NULL"
 
 # Public Transportation
-public_transportation = "Operating"
+public_transportation = "Operating" #from tripsguard
 
 # Businesses
-businesses = "Open"
+businesses = "Open" #from tripsguard
 
 # Restaurants
-restaurants = "Open"
+restaurants = "Open" #from tripsguard
 
 # Reminder
 reminder = "NULL"

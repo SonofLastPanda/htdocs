@@ -27,7 +27,6 @@ qurantine = "NULL"
 # Vaccine
 vaccine = "NULL"
 
-
 # Regulation
 regulation = "NULL"
 
