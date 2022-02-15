@@ -21,14 +21,13 @@ contents = [content.text for content in editorals.find_all('ul')]
 
 restrictions = dict(zip(types, contents))
 
-print(types)
-
 for i in range(len(contents)):
     print (f"""
 Types: {types[i]}
 Content: {contents[i]}
 """)
 
+# for writing csv file?
 '''
 for i in range(len(types)):
     with open(f'sweden.txt', "a") as f:
