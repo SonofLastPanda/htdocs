@@ -18,13 +18,15 @@
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required><br><br>
         <label for="psw"><b>Password    </b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required><br><br>
-        <label for ="admin"><b>Admin:</b></label>
-        <input type="checkbox" id="admin" name="admin" value="Admin" style="border:2px;">
-      </label><br><br>
+        <input type="password" placeholder="Enter Password" name="psw" required><br>
+        <p>Please validate by submitting your CAPTCHA:</p>
+        <canvas id="captcha" style="position: relative; top: -35px;">captcha text</canvas>
+        <div><p style="position: relative;top: -95px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -134px; left: 205px;"><div>
+        <div><button id="submitButton" type="submit" class= "button button_register" style="position:relative; left:55px;top:-105px;">SUBMIT CAPTCHA</button><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:55px; top:-105px;">REFRESH CAPTCHA</button></div>
+        <span id="output"></span>
+        <script src="script.js"></script>
         <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
-      <div>
-      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:52px  ;">LOGIN</button>
+        <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
       </div>
       </div>
       </form>

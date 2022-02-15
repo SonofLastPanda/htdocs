@@ -10,7 +10,7 @@
   <body>
   <div class="container">
   <img src="map_background.png" class=body_frontpage>
-    <div class="boxed_c">
+    <div class="boxed_c_l">
       <form action="/performreg.php">
       <div>
       <h1 style= "text-align: center;">User Registration</h1>
@@ -34,10 +34,18 @@
       <input type="vaccine_doses" placeholder="Number of Doses" name="vaccine_doses" required><br><br>
       <label><b>Vaccine type:</b></label>
       <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br>
-      <p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>By creating an account you agree to our <a href="terms.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
       <div>
       <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:43px;">REGISTER</button>
       </div></div>
+      <div class="boxed_c_r">
+        <p>Please validate by submitting your CAPTCHA:</p>
+        <canvas id="captcha" style="position: relative; top: -45px;">captcha text</canvas>
+        <div><p style="position: relative;top: -125px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -162px; left: 205px;"><div>
+        <div><button id="submitButton" type="submit" class= "button button_register" style="position:relative; left:55px;top:-130px;">SUBMIT CAPTCHA</button><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:55px; top:-131px;">REFRESH CAPTCHA</button></div>
+        <span id="output"></span>
+        <script src="script.js"></script>
+      </div>
       </form>
     </div>
   </body>

@@ -12,7 +12,8 @@
       <form action="login.php">
       <div>
       <h1 style= "text-align: center;">Terms & Conditions</h1>
-      <p>The information on this page is not exhaustive. It is based on the latest available publicly data and authoritative national sources. CoTRACK-19 tries to keep the information on the site up to date, but we take no explicit or implied responsibility for its completeness or accuracy or for personal decisions based on the information.</p>
+      <p style="padding-right: 50px; text-align:justify;">The information on this page is not exhaustive. It is based on the latest available public data and authoritative national sources. CoTRACK-19 tries to keep the information on the site up to date, but we take no explicit or implied responsibility for its completeness or accuracy or for personal decisions based on the information. </p><br>
+      <p style= "padding-right: 50px; text-align: justify;">By agreeing to the terms and registering as a user, you are confirming that you are 18 years old or older.</p>
       </div>
       </div>
       </form>
