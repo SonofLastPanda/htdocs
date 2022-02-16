@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'playground',
+    'databaseapp'
 ]
 
 MIDDLEWARE = [
@@ -75,12 +78,17 @@ WSGI_APPLICATION = 'CoTRACK.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django_snowflake',
+        'NAME': 'BATGIRL_PROJECT',
+        'SCHEMA': 'PUBLIC',
+        'WAREHOUSE': 'COMPUTE_WH',
+        'USER': 'BATGIRL',
+        'PASSWORD': 'Ims*1234',
+        'ACCOUNT': 'lxerxln-ff45454',
+    },
 }
 
-
+#https://se02466.europe-west4.gcp.snowflakecomputing.com
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
