@@ -1,13 +1,19 @@
-ID,FROM,TO,Boarding,Face Mask,Qurantine,Vaccine,Regulation,Reminder
-SWE_IND,Sweden,India,India Boarding,India Face Mask,Indian Qurantine,India Vaccine,NULL,NULL
+ID,FROM,TO,Boarding,Qurantine,Vaccine,Regulation,Face Mask (Regulation),Public Transportation (Regulation),Businesses (Regulation),Restaurants (Regulation),Reminder
+SWE_IND,Sweden,India,"Submit complete and factual information in self-declaration form on the online Air Suvidha portal before the scheduled travel, including last 14 days travel details.  
+Upload a negative COVID-19 RT-PCR report*. The test should have been conducted within 72 hrs prior to undertaking the journey. 
+Each passenger shall also submit a declaration with respect to authenticity of the report and will be liable for criminal prosecution, if found otherwise.","7 to 14 days depending on the state the passenger is travelling to. 
+Home quarantine & Institutional quarantine options based on the state travelled to. ",If travellers are fully Vaccinated by the vaccines recognised by the Indian Government ,NULL,Mandatory face masks during flight and after arrival,Limited,Open in low risk areas,Open in low risk areas,"1. Valid visa required
+2 Fill out the Air Suvedha Form 
+3. Negative PCR test taken within 72 hours of arrival
+4. Random PCR test upon arrival"
 SWE_TUR,Sweden,Turkey,"1. Passengers over the age of 12 must have a document showing a negative COVID-19 test result to enter Turkey. Either: 
     a. PCR test taken in the last 72 hours 
     b. Rapid antigen test taken in the last 48 hours
 2. Fully vaccinated and recovered patients are exempt if they can provide either:
     a. Vaccination certificate showing the last dose was given at least 14 days before arrival
     b. Medical certificate showing recovery in the last 6 months
-","Everyone must wear their mask while at the airport, including the terminal area.","Travelers arriving from countries considered high-risk, or who have been to high-risk countries in the last 14 days, are required to quarantine in Turkey. Quarantine is carried out at accommodation facilities determined by the Turkish government.
-",Need COVID proof. Being fully vaccinated is one acceptable way to do this.,NULL,"1. Need a valid visa 
+","Travelers arriving from countries considered high-risk, or who have been to high-risk countries in the last 14 days, are required to quarantine in Turkey. Quarantine is carried out at accommodation facilities determined by the Turkish government.
+",Need COVID proof. Being fully vaccinated is one acceptable way to do this.,NULL,"Everyone must wear their mask while at the airport, including the terminal area.",Operating,Open,Open,"1. Need a valid visa 
 2. Traveler Entry Form
 3. Istanbul Airport has test centers which offer service 24/7. 
 4. COVID proof
@@ -18,9 +24,38 @@ d. COVID vaccination"
 SWE_HKG,Sweden,Hong Kong,"1. has not stayed for more than two hours in the 14-day Period in any place that is on the “List of Specified Places with Flight Suspension”;
 2. Present recognised vaccination record;
 3. Negative result proof of a PCR-based nucleic acid test for COVID-19 within 48 hours(2) (including documentary proofs that the lab is ISO15189 accredited or Government recognised); and
-4. Confirmation of room reservation in a DQH for not less than 14 nights starting from the day of arrival at Hong Kong","1. Undergo compulsory quarantine for 14 days in a designated quarantine hotel;
+4. Confirmation of room reservation in a DQH for not less than 14 nights starting from the day of arrival at Hong Kong","1. Hotel quratine for 14 days 
+2. Home qurantine for 7 days",Yes,NULL,"1. Undergo compulsory quarantine for 14 days in a designated quarantine hotel;
 2. Undergo 6 tests during compulsory quarantine(1) (professional swab sampling);
 3. Self-monitoring in the subsequent 7 days; and
 4. Compulsory testing on the 16th day of arrival at HK (professional swab sampling at a Community Testing Centre (CTC), or a recognised local medical testing institutions; or conduct and submit a deep throat saliva test at specified collection points); and
-5. Compulsory testing on the 19th day of arrival at HK (must be conducted at a Community Testing Centre (CTC))","1. Hotel quratine for 14 days 
-2. Home qurantine for 7 days",Yes,NULL,NULL
+5. Compulsory testing on the 19th day of arrival at HK (must be conducted at a Community Testing Centre (CTC))",Operating,Open,Open,NULL
+SWE_AUT,Sweden,Austria,"1. Proof of full vaccination (2 jabs) OR proof of past infection (the medical document needs to show the date of recovery – (for guests from the UK: an NHS email/text of a positive test is not sufficient) 
+2. AND a negative PCR test (valid for 72 hours) OR proof of a booster jab (booster is valid from the first day) 
+3. See further details below (What proof is accepted?)","Entry without vaccination / recovery 
+Entry for touristic purposes or business travel is not possible without quarantine, if you cannot meet the “2-G” requirements. ",Yes,,,,,,
+,Sweden,Belgium,,,,,,,,,
+,Sweden,Bulgaria,,,,,,,,,
+,Sweden,Croatia,,,,,,,,,
+,Sweden,Republic of Cyprus,,,,,,,,,
+,Sweden,Czech Republic,,,,,,,,,
+,Sweden,Denmark,,,,,,,,,
+,Sweden,Estonia,,,,,,,,,
+,Sweden,Finland,,,,,,,,,
+,Sweden,France,,,,,,,,,
+,Sweden,Germany,,,,,,,,,
+,Sweden,Greece,,,,,,,,,
+,Sweden,Hungary,,,,,,,,,
+,Sweden,Ireland,,,,,,,,,
+,Sweden,Italy,,,,,,,,,
+,Sweden,Lativia,,,,,,,,,
+,Sweden,Lithuania,,,,,,,,,
+,Sweden,Luxembourg,,,,,,,,,
+,Sweden,Malta,,,,,,,,,
+,Sweden,Netherlands,,,,,,,,,
+,Sweden,Poland,,,,,,,,,
+,Sweden,Portugal,,,,,,,,,
+,Sweden,Romania,,,,,,,,,
+,Sweden,Slovakia,,,,,,,,,
+,Sweden,Slovenia,,,,,,,,,
+,Sweden,Spain,,,,,,,,,
