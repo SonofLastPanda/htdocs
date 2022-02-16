@@ -329,34 +329,37 @@
 	  height: 550px;
 	  width: calc(100%-20px);
     background: #fcfaf4;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     margin-bottom: 100px;
     margin-right:50px;
     margin-left:50px;
     scroll-margin-bottom: 2em;
   }
 
-
   #style::-webkit-scrollbar-track{
     border-radius: 10px;
     background-color:#fcfaf4;
-    margin-bottom:100px;
+    margin-bottom:2px;
+    padding-left:20px;
   }
   #style::-webkit-scrollbar{
     width:12px;
     background-color: #fcfaf4;
+    margin-left:10px;
   }
   #style::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background-color: #40798C;
   }
   .scroll_text{
-    height:100px;
-    width:940px;
-    margin-left: 10px;
+    height:500px;
+    width:900px;
+    margin-left: 20px;
+    padding-left:10px;
     margin-right: 10px;
-    margin-bottom:200px;
-    padding-bottom:100px;
+    padding-right: 23px;
+    position:fixed;
+    overflow-y: scroll;
   }
   .body_frontpage{
     opacity:1;
