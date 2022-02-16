@@ -1,20 +1,12 @@
 
-// // Script to load the font wanted
-// <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-// <script>
-//   WebFont.load({
-//     google: {
-//       families: ['Righteous', 'Red Hat Display']
-//     }
-//   });
-// </script>
-
-
 // document.querySelector() is used to select an element from the document using its ID
 let captchaText = document.querySelector('#captcha');
 var ctx = captchaText.getContext("2d");
-ctx.font = "32pt Roboto";
+ctx.fillStyle = "#f8f7f1";
 ctx.fillStyle = "#40798C";
+ctx.font = "28pt Red Hat Display"; 
+
+// #40798C
 
 let userText = document.querySelector('#textBox');
 let submitButton = document.querySelector('#submitButton');
@@ -31,7 +23,6 @@ for (let i = 1; i <= 7; i++) {
 }
 var c = emptyArr.join('');
 ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
-ctx.font = '68px Red Hat Display';
 
 // This event listener is stimulated whenever the user press the "Enter" button
 // "Correct!" or "Incorrect, please try again" message is
@@ -55,6 +46,7 @@ submitButton.addEventListener('click', function() {
  if (userText.value === c) {
  output.classList.add("correctCaptcha");
  output.innerHTML = "Correct!";
+ output.font = "Red Hat Display"; 
  } else {
  output.classList.add("incorrectCaptcha");
  output.innerHTML = "Incorrect, please try again";
