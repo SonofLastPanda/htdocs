@@ -20,5 +20,6 @@ from django.views.generic.base import TemplateView #for the homepage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('loginregister/', include('loginregister.urls')), #alla url som börjar med login_registrer kommer hanteras av login_registrer url appen
-    path('', TemplateView.as_view(template_name='home.html'), name='home') #for the home page
+    path('', TemplateView.as_view(template_name='index.php'), name='home'), #for the home page
+    path('accounts/', include('django.contrib.auth.urls')), #for login
 ]

@@ -38,7 +38,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', #this one is also used for login
     'django.contrib.contenttypes',
     #'django.contrib.sessions',
     'django.contrib.messages',
@@ -131,12 +131,13 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/' #for the homepage
+LOGIN_REDIRECT_URL = '/' #to return to homepage after login
+LOGOUT_REDIRECT_URL = 'home'
 
 # for style.css
-static_root = os.path.join(BASE_DIR, 'static')
+#static_root = os.path.join(BASE_DIR, 'static')
 
 #för allmänna static files som inte är i särskild app
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+#STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#]
