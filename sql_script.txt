@@ -1,0 +1,59 @@
+CREATE TABLE Users (
+    user_id int NOT NULL UNIQUE,
+    email varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    citizenship varchar(255) NOT NULL,
+    PRIMARY KEY(user_id)
+    );
+    
+CREATE TABLE Country(
+    country_id int NOT NULL UNIQUE,
+    country_name varchar(255) NOT NULL,
+    PRIMARY KEY(country_id)
+    );
+    
+CREATE TABLE Vaccination_Info(
+    user_id int NOT NULL UNIQUE,
+    vaccination_name varchar(255) NOT NULL,
+    date_of_issue date,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) );
+    
+CREATE TABLE Admin (
+    admin_id int NOT NULL,
+    email varchar(255) NOT NULL,
+    password varchar(255) NOT NULL
+    );
+CREATE TABLE Bookmark(
+    user_id int NOT NULL UNIQUE,
+    country_id int NOT NULL UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (country_id) REFERENCES Country(country_id));
+    
+insert into users values ('100', 'a@a', 'pwd123', 'earth');
+
+CREATE TABLE IF NOT EXISTS regulation (
+`ID` VARCHAR(255) NOT NULL,
+`FROM` VARCHAR(255) NOT NULL,
+`TO` VARCHAR(255) NOT NULL,
+`Boarding` LONGTEXT NULL,
+`Qurantine` LONGTEXT NULL,
+`Vaccine` VARCHAR(255) NULL,
+`Regulation` LONGTEXT NULL,
+`Face_Mask` VARCHAR(1000) NULL,
+`Public_Transportation` VARCHAR(255) NULL,
+`Businesses` VARCHAR(255) NULL,
+`Restaurants` VARCHAR(255) NULL,
+`Reminder` LONGTEXT NULL
+);
+
+INSERT INTO REGULATION VALUES
+('SWE_IND','Sweden','India','Submit complete and factual information in self-declaration form on the online Air Suvidha portal before the scheduled travel\, including last 14 days travel details.  Upload a negative COVID-19 RT-PCR report*. The test should have been conducted within 72 hrs prior to undertaking the journey. Each passenger shall also submit a declaration with respect to authenticity of the report and will be liable for criminal prosecution\, if found otherwise.','7 to 14 days depending on the state the passenger is travelling to. Home quarantine & Institutional quarantine options based on the state travelled to. ','If travellers are fully Vaccinated by the vaccines recognised by the Indian Government ','NULL','Mandatory face masks during flight and after arrival','Limited','Open in low risk areas','Open in low risk areas','1. Valid visa required2 Fill out the Air Suvedha Form 3. Negative PCR test taken within 72 hours of arrival4. Random PCR test upon arrival');
+
+INSERT INTO REGULATION VALUES
+('SWE_TUR','Sweden','Turkey','1. Passengers over the age of 12 must have a document showing a negative COVID-19 test result to enter Turkey. Either:     a. PCR test taken in the last 72 hours     b. Rapid antigen test taken in the last 48 hours2. Fully vaccinated and recovered patients are exempt if they can provide either:    a. Vaccination certificate showing the last dose was given at least 14 days before arrival    b. Medical certificate showing recovery in the last 6 months','Travelers arriving from countries considered high-risk\, or who have been to high-risk countries in the last 14 days\, are required to quarantine in Turkey. Quarantine is carried out at accommodation facilities determined by the Turkish government.','Need COVID proof. Being fully vaccinated is one acceptable way to do this.','NULL','Everyone must wear their mask while at the airport\, including the terminal area.','Operating','Open','Open','1. Need a valid visa 2. Traveler Entry Form3. Istanbul Airport has test centers which offer service 24/7. 4. COVID proofa. Negative PCR test taken within 72 hours before arrivingb. Negative antigen test taken within 48 hours before arrivingc. Recovery certificate from the past 6 monthsd. COVID vaccination');
+
+INSERT INTO REGULATION VALUES
+('SWE_HKG','Sweden','Hong Kong','1. has not stayed for more than two hours in the 14-day Period in any place that is on the “List of Specified Places with Flight Suspension”;2. Present recognised vaccination record;3. Negative result proof of a PCR-based nucleic acid test for COVID-19 within 48 hours(2) (including documentary proofs that the lab is ISO15189 accredited or Government recognised); and4. Confirmation of room reservation in a DQH for not less than 14 nights starting from the day of arrival at Hong Kong','1. Hotel quratine for 14 days 2. Home qurantine for 7 days','Yes','NULL','1. Undergo compulsory quarantine for 14 days in a designated quarantine hotel;2. Undergo 6 tests during compulsory quarantine(1) (professional swab sampling);3. Self-monitoring in the subsequent 7 days; and4. Compulsory testing on the 16th day of arrival at HK (professional swab sampling at a Community Testing Centre (CTC)\, or a recognised local medical testing institutions; or conduct and submit a deep throat saliva test at specified collection points); and5. Compulsory testing on the 19th day of arrival at HK (must be conducted at a Community Testing Centre (CTC))','Operating','Open','Open','NULL');
+
+INSERT INTO REGULATION VALUES
+('SWE_AUT','Sweden','Austria','1. Proof of full vaccination (2 jabs) OR proof of past infection (the medical document needs to show the date of recovery – (for guests from the UK: an NHS email/text of a positive test is not sufficient) 2. AND a negative PCR test (valid for 72 hours) OR proof of a booster jab (booster is valid from the first day) 3. See further details below (What proof is accepted?)','Entry without vaccination / recovery Entry for touristic purposes or business travel is not possible without quarantine\, if you cannot meet the “2-G” requirements. ','Yes','','','','','','');
