@@ -332,6 +332,7 @@
     left:115px;
     top:115px;
     margin-bottom: 100px;
+    padding-top:30px;
   }
   .scrollbar{
 	  float: left;
@@ -435,6 +436,8 @@
     /* display:inline-block;
     min-width: 150px; */
   }
+
+
   /* Country page */
   .scrollbar_country{
 	  float: left;
@@ -465,14 +468,26 @@
   }
   .scroll_text_country{
     height:500px;
-    width:1090px;
-    margin-left: 30px;
-    padding-left:10px;
-    margin-right: 10px;
-    padding-right: 23px;
+    width:1000px;
+    margin-left: 70px;
+    /* padding-left:100px; */
+    margin-right: 150px;
+    padding-right: 100px;
     position:fixed;
     overflow-y: scroll;
     font-family:'Red Hat Display';
+  }
+  .reminder{
+    width:1000px;
+    height:20px;
+    background-color:#fcfaf4;
+    font-family:'Red Hat Display';
+    font-style: italic;
+    font-size: 9pt;
+    position:fixed;
+    top:89%;
+    margin-left:320px;
+    color:#40798C;
   }
 
 

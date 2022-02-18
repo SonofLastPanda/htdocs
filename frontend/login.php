@@ -15,9 +15,9 @@
       <div>
       <h1 style= "text-align: center; margin-right:10px;">Login</h1>
       <p>Please fill in the form below:</p>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required><br><br>
-        <label for="psw"><b>Password    </b></label>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required><br><br>
+        <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required><br>
         <p>Please validate by submitting your CAPTCHA:</p>
         <canvas id="captcha" style="position: relative; top: -35px;">captcha text</canvas>
