@@ -3,7 +3,7 @@
   <head>
     <link href="styles.css" rel="stylesheet" type="text/css"/> <!-- Connecting to the css file named styles.css -->
     <div class="header">
-    <h1><img src="logo1.2.png" alt="BatGirl logo" width="50" height="50" style= "margin-bottom: -10px; margin-left: 15px; margin-right: 0px;">CoTRACK-19<form method="get" action="index.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>HOME</form></h1>
+    <h1><img src="logo1.2.png" alt="BatGirl logo" width="50" height="50" style= "margin-bottom: -10px; margin-left: 15px; margin-right: 0px;">CoTRACK-19<form method="get" action="index.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>HOME</form><form method="get" action="user_info.php"><button type="submit" id="user_info" class="button button_header" style="margin-right:7px; top:-53px;";>USER INFO</form></h1>
     </div>
   </head>
   <body>
@@ -21,7 +21,7 @@
         
         <h1>Your feed</h1>
         <div class="scrollbar" id="style">
-          <div class="scroll_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus eros eleifend, tempus ligula vitae, sodales diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer tempus imperdiet posuere. Sed nibh velit, fermentum id ipsum fringilla, mollis porttitor mauris. Maecenas lacinia ante non bibendum tempus. In ipsum ante, sollicitudin in sagittis elementum, lacinia non velit. Duis quis euismod massa, in ultricies lacus. Praesent consectetur erat ut sodales facilisis. Nullam malesuada feugiat ipsum, a ornare tellus euismod sit amet. Aliquam diam leo, fermentum et tincidunt id, dictum vel quam. Suspendisse porta sapien purus, eget pellentesque quam pellentesque at. In eu blandit turpis, tempus tincidunt mi. Nullam imperdiet nunc tristique, tempor mauris sit amet, faucibus quam.
+          <div class="scroll_text" id="style">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus eros eleifend, tempus ligula vitae, sodales diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer tempus imperdiet posuere. Sed nibh velit, fermentum id ipsum fringilla, mollis porttitor mauris. Maecenas lacinia ante non bibendum tempus. In ipsum ante, sollicitudin in sagittis elementum, lacinia non velit. Duis quis euismod massa, in ultricies lacus. Praesent consectetur erat ut sodales facilisis. Nullam malesuada feugiat ipsum, a ornare tellus euismod sit amet. Aliquam diam leo, fermentum et tincidunt id, dictum vel quam. Suspendisse porta sapien purus, eget pellentesque quam pellentesque at. In eu blandit turpis, tempus tincidunt mi. Nullam imperdiet nunc tristique, tempor mauris sit amet, faucibus quam.
 
 Integer imperdiet tempus nibh, a porta mi. Pellentesque dui nisi, tincidunt eu fringilla at, consectetur non mi. In tempus felis non ex condimentum commodo ut vitae magna. Etiam a lorem lorem. Ut cursus efficitur nisi, sit amet ullamcorper lectus consectetur vel. Cras in feugiat tortor. Nunc viverra quam et tellus accumsan pellentesque. Proin rutrum mi ac magna interdum auctor. Ut feugiat, erat vitae ultrices cursus, nunc mauris aliquam nibh, at molestie urna ex ut odio. Donec convallis maximus vehicula. Proin ultricies elit a suscipit semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam aliquam est non mauris auctor interdum. Vestibulum mollis est vitae elementum lobortis. Maecenas suscipit tortor ac augue fermentum finibus.
 
@@ -44,20 +44,7 @@ Fusce viverra eget neque sed condimentum. Cras ut ullamcorper dolor. In pellente
 Nullam et mauris fringilla, mollis magna quis, tempus velit. Vivamus a purus ex. Integer arcu dolor, vulputate cursus dapibus id, posuere at arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec porttitor at lacus vel bibendum. Sed placerat ut magna sit amet interdum. Suspendisse tristique mauris non mattis tempus. Nullam nec massa nisi. Duis non dolor sit amet turpis vestibulum consequat in ut libero. Etiam lectus augue, tristique nec orci vitae, egestas auctor risus.
 
 Vivamus at rutrum ipsum. Suspendisse non mi et odio ultricies congue. Mauris luctus ultricies scelerisque. Sed eu tincidunt turpis, bibendum vehicula urna. Nullam facilisis ex augue, id lacinia lacus convallis non. Vivamus vitae eros blandit, porttitor neque in, aliquet orci. Aenean tristique elit a purus tristique ullamcorper. Suspendisse cursus faucibus tortor facilisis consequat. Nam sed feugiat libero, ac lobortis velit.
-</div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
-  <style>
-          ::-webkit-scrollbar-track{
-            box-shadow:inset 0 0 5px grey;
-            border-radius: 10px;
-          }
-          ::webkit-scrollbar-thumb{
-           background-color:#40798C;
-            border-radius: 10px;
-          }
-          ::-webkit-scrollbar-thumb:hover{
-            background-color: #011638;
-          }
-  </style>
-
+</div>
+</div>
 </div> 
   </body>

@@ -323,45 +323,88 @@
     top:115px;
     margin-bottom: 100px;
   }
+  .boxed_country{
+    background-color:#fcfaf4;
+    position:fixed;
+    height:700px;
+    width:1270px;
+    border-radius:30px;
+    left:115px;
+    top:115px;
+    margin-bottom: 100px;
+  }
   .scrollbar{
 	  float: left;
     text-align: justify;
 	  height: 550px;
 	  width: calc(100%-20px);
     background: #fcfaf4;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     margin-bottom: 100px;
     margin-right:50px;
     margin-left:50px;
     scroll-margin-bottom: 2em;
   }
 
-
   #style::-webkit-scrollbar-track{
     border-radius: 10px;
     background-color:#fcfaf4;
-    margin-bottom:100px;
+    margin-bottom:2px;
+    padding-left:20px;
   }
   #style::-webkit-scrollbar{
     width:12px;
     background-color: #fcfaf4;
+    margin-left:10px;
   }
   #style::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background-color: #40798C;
   }
+  #style2::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color:#CFD7C7;
+    margin-bottom:2px;
+    padding-left:-30px;
+    margin-top:10px;
+  }
+  #style2::-webkit-scrollbar{
+    width:12px;
+    background-color: #CFD7C7;
+    margin-left:-10px;
+    margin-top:10px;
+  }
+  #style2::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #40798C;
+    padding-left:-30px;
+    margin-top:10px;
+  }
   .scroll_text{
-    height:100px;
-    width:940px;
-    margin-left: 10px;
+    height:500px;
+    width:900px;
+    margin-left: 20px;
+    padding-left:10px;
     margin-right: 10px;
-    margin-bottom:200px;
-    padding-bottom:100px;
+    padding-right: 23px;
+    position:fixed;
+    overflow-y: scroll;
+    font-family:'Red Hat Display';
+  }
+  .scroll_user{
+    height:550px;
+    width:450px;
+    margin-left: -20px;
+    padding-left:10px;
+    margin-right: 15px;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    font-family:'Red Hat Display';
   }
   .body_frontpage{
     opacity:1;
     position: fixed;
-    left:-5px;
+    left:0px;
     top:57.5px;
     width:100%;
     height:auto;
@@ -389,8 +432,47 @@
   label {
     text-align:right;
     padding-right:20px;
-    display:inline-block;
-    min-width: 150px;
+    /* display:inline-block;
+    min-width: 150px; */
+  }
+  /* Country page */
+  .scrollbar_country{
+	  float: left;
+    text-align: justify;
+	  height: 550px;
+	  width: calc(100%-20px);
+    background: #fcfaf4;
+    margin-bottom: 100px;
+    margin-right:50px;
+    margin-left:50px;
+    scroll-margin-bottom: 2em;
+  }
+
+  #style::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color:#fcfaf4;
+    margin-bottom:2px;
+    padding-left:20px;
+  }
+  #style::-webkit-scrollbar{
+    width:12px;
+    background-color: #fcfaf4;
+    margin-left:10px;
+  }
+  #style::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #40798C;
+  }
+  .scroll_text_country{
+    height:500px;
+    width:1090px;
+    margin-left: 30px;
+    padding-left:10px;
+    margin-right: 10px;
+    padding-right: 23px;
+    position:fixed;
+    overflow-y: scroll;
+    font-family:'Red Hat Display';
   }
 
 
