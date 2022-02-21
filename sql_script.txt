@@ -57,3 +57,8 @@ INSERT INTO REGULATION VALUES
 
 INSERT INTO REGULATION VALUES
 ('SWE_AUT','Sweden','Austria','1. Proof of full vaccination (2 jabs) OR proof of past infection (the medical document needs to show the date of recovery – (for guests from the UK: an NHS email/text of a positive test is not sufficient) 2. AND a negative PCR test (valid for 72 hours) OR proof of a booster jab (booster is valid from the first day) 3. See further details below (What proof is accepted?)','Entry without vaccination / recovery Entry for touristic purposes or business travel is not possible without quarantine\, if you cannot meet the “2-G” requirements. ','Yes','','','','','','');
+
+
+
+
+ALTER TABLE vaccination_info ADD COLUMN vaccination_dose int(255)
