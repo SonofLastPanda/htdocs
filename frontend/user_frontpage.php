@@ -10,42 +10,97 @@
   <div class="container">
       <img src="map_background.png" class=body_frontpage>
       <div class="boxed_top">
-        <h6>Welcome <br>username!</h6>
+        <h6>Welcome username</h6>
         <div class="p3">"We are in this together<br>and we will get through this,<br></div><div class="p3"><br><br><strong>together</strong>"</div><br><br><br>
         <div class="p4">- UN Secretary-General <br>Antonio Guterrez</div>
       </div>
       <div class="boxed_bottom">
         <h5>Your favorite destinations:</h5>
+        <?php
+        include 'connect.php';
+
+        #$email = $_POST["uname"];
+        $email = "bb";
+        #$uid = mysqli_query($link, "SELECT users.user_id FROM users WHERE users.email = '$email'");
+        $uid='2';
+        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id WHERE bookmark.user_id = '$uid'");
+
+        if (mysqli_num_rows($fav_countries) > 0) {
+        echo "<table, th, td {
+          border='1';
+          border-collapse: collapse;
+          border-color: #CFD7C7;
+        }>";
+        while($row = mysqli_fetch_row($fav_countries)){
+        echo "<tr><td>";
+        echo $row[0];
+        echo "</td></tr>";
+        }
+        echo "</table>";
+        }
+        ?>
       </div>
       <div class="boxed_info">
         
         <h1>Your feed</h1>
         <div class="scrollbar" id="style">
-          <div class="scroll_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus eros eleifend, tempus ligula vitae, sodales diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer tempus imperdiet posuere. Sed nibh velit, fermentum id ipsum fringilla, mollis porttitor mauris. Maecenas lacinia ante non bibendum tempus. In ipsum ante, sollicitudin in sagittis elementum, lacinia non velit. Duis quis euismod massa, in ultricies lacus. Praesent consectetur erat ut sodales facilisis. Nullam malesuada feugiat ipsum, a ornare tellus euismod sit amet. Aliquam diam leo, fermentum et tincidunt id, dictum vel quam. Suspendisse porta sapien purus, eget pellentesque quam pellentesque at. In eu blandit turpis, tempus tincidunt mi. Nullam imperdiet nunc tristique, tempor mauris sit amet, faucibus quam.
+          <div class="scroll_text">
+        <?php
 
-Integer imperdiet tempus nibh, a porta mi. Pellentesque dui nisi, tincidunt eu fringilla at, consectetur non mi. In tempus felis non ex condimentum commodo ut vitae magna. Etiam a lorem lorem. Ut cursus efficitur nisi, sit amet ullamcorper lectus consectetur vel. Cras in feugiat tortor. Nunc viverra quam et tellus accumsan pellentesque. Proin rutrum mi ac magna interdum auctor. Ut feugiat, erat vitae ultrices cursus, nunc mauris aliquam nibh, at molestie urna ex ut odio. Donec convallis maximus vehicula. Proin ultricies elit a suscipit semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam aliquam est non mauris auctor interdum. Vestibulum mollis est vitae elementum lobortis. Maecenas suscipit tortor ac augue fermentum finibus.
+      $c_name='Hong Kong';  
+      $regulations=mysqli_query($link, "SELECT * FROM regulation WHERE regulation.to = '$c_name'");
+      if (mysqli_num_rows($regulations) > 0) {
+        echo "<table border='1'>";
+        while($row3 = mysqli_fetch_row($regulations)){
 
-Suspendisse vitae sapien eros. Vestibulum nec libero vitae ex rhoncus hendrerit id sed dolor. Sed sit amet lacus ut magna euismod mollis et vel tortor. Nunc pretium facilisis dolor, eget semper lacus maximus nec. Sed consectetur maximus felis, eget laoreet tellus accumsan quis. In sagittis elit sit amet convallis vehicula. Praesent quis vestibulum mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque euismod neque quis blandit accumsan. Phasellus eu efficitur mauris. Nunc vulputate nisl et eros cursus sollicitudin. Maecenas et risus urna. Pellentesque posuere porta sapien non lobortis.
+        echo "<tr><td>";
+        echo $row3[1].' to '.$row3[2];
+        echo "</td></tr><tr>";
 
-Donec fringilla elit elit, ac rutrum tortor ultricies id. Sed finibus et ligula nec dignissim. Nulla volutpat, arcu quis accumsan maximus, dui diam tempus arcu, vel varius risus orci quis tortor. Sed suscipit luctus eros, ac tristique eros volutpat nec. Nunc sollicitudin tincidunt ultricies. Ut varius nulla quis arcu commodo, malesuada facilisis mi eleifend. Donec facilisis libero dignissim sem maximus vehicula in in ligula. Morbi vel convallis elit. Etiam vel bibendum purus. Duis vitae elit congue, aliquet tortor at, vulputate dolor. Nulla facilisi. Sed facilisis ante at mi hendrerit, sit amet finibus est rhoncus. Nam libero odio, pretium suscipit dolor nec, luctus pellentesque dui.
+        echo "</tr><tr><td>";
+        echo "Boarding<br>".$row3[3];
+        echo "</td></tr><tr>";
 
-Fusce erat enim, eleifend sed vestibulum iaculis, scelerisque venenatis lorem. Mauris non urna nibh. Morbi auctor metus vitae pellentesque pretium. Pellentesque sit amet lobortis nunc, quis aliquet lacus. Ut gravida ligula sit amet placerat blandit. Nam volutpat rutrum leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis tempus nisl vitae ante ultrices pellentesque eu et urna. Duis pretium magna eu lorem eleifend dapibus. Suspendisse vehicula orci elit, eget fringilla lorem semper at. Etiam at orci sapien. Integer lacinia, orci nec laoreet fringilla, arcu diam tempus dui, non tincidunt quam purus ut sem. Vestibulum eleifend pulvinar orci. Morbi dignissim sapien nibh, et tristique felis scelerisque et. Nulla viverra sit amet tortor ac cursus. Proin sed commodo tortor, ut aliquam enim.
+        echo "</tr><tr><td>";
+        echo "Quarantine<br>".$row3[4];
+        echo "</td></tr><tr>";
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc sit amet neque vitae diam cursus feugiat. Morbi et dui lorem. Cras vitae consectetur velit. Mauris eu nulla in lectus interdum feugiat. Nam molestie dolor lacus, vitae interdum justo dictum ut. Mauris viverra tortor blandit ultrices pellentesque. Proin non nibh ipsum. In varius lacus nec justo sodales faucibus. Aenean ex nunc, hendrerit sed accumsan id, cursus sed nibh. Nam rhoncus, nulla at porttitor bibendum, lacus metus rhoncus nisi, id tincidunt neque dui a diam. Praesent vitae quam est. Nulla facilisi.
+        echo "</tr><tr><td>";
+        echo "Vaccine<br>".$row3[5];
+        echo "</td></tr><tr>";
 
-In hac habitasse platea dictumst. Donec rhoncus tincidunt elit, ac malesuada elit fermentum sed. Mauris pulvinar at libero et pretium. Nullam tristique dui vitae est dictum lacinia. Integer auctor ac leo a rutrum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris vestibulum ligula in auctor facilisis. Proin lobortis pretium eros in scelerisque. Proin elementum neque risus, eu tempus massa laoreet ultrices. Maecenas pellentesque est a dolor varius, nec hendrerit turpis finibus. Morbi metus lorem, volutpat sed nisl sit amet, lacinia sagittis ex. Quisque efficitur lectus nunc, quis vehicula turpis pellentesque eget. Praesent facilisis dolor vitae consectetur rhoncus. Curabitur auctor urna ut diam ultrices, ac elementum eros sagittis. Proin feugiat est turpis, in elementum odio tempus a.
+        echo "</tr><tr><td>";
+        echo "Regulation<br>".$row3[6];
+        echo "</td></tr><tr>";
 
-Vivamus eros lacus, mattis quis tellus fringilla, vestibulum feugiat nibh. Quisque consequat justo maximus nibh pellentesque commodo. Vivamus consectetur urna mauris, eu vulputate elit cursus a. Sed nec luctus mi. Aliquam vehicula, ipsum volutpat auctor ultrices, felis elit suscipit ipsum, vel tincidunt eros massa vel lectus. Phasellus faucibus non magna sit amet vulputate. Ut molestie orci eget mi feugiat, eget viverra turpis blandit.
+        echo "</tr><tr><td>";
+        echo "Face Mask<br>".$row3[7];
+        echo "</td></tr><tr>";
 
-Curabitur euismod rhoncus justo id ornare. Etiam feugiat tincidunt suscipit. Nam id ante quis sapien viverra lacinia. Donec nec sapien posuere, pretium ligula vel, semper nisi. Nam vitae lectus feugiat lacus cursus suscipit. Etiam porta aliquam sem, vitae sagittis lorem ultrices nec. Fusce vitae tempor enim. Aliquam nec nisl mauris. Nunc libero ante, tincidunt ac orci sed, porttitor efficitur massa. Nam neque orci, tempor sit amet gravida in, condimentum nec tellus. Nam rhoncus vulputate odio, et finibus purus sodales nec.
+        echo "</tr><tr><td>";
+        echo "Public Transportation<br>".$row3[8];
+        echo "</td></tr><tr>";
 
-Fusce viverra eget neque sed condimentum. Cras ut ullamcorper dolor. In pellentesque, libero id iaculis dapibus, dui massa blandit turpis, sed mollis dolor lorem vel velit. Praesent fringilla ullamcorper ligula, ultrices facilisis augue sagittis sit amet. Proin quis luctus tellus. Mauris faucibus neque vel consequat efficitur. Praesent eget dictum diam. Nullam interdum mi turpis, ut fermentum nunc viverra sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis vestibulum molestie ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat nunc a felis sodales, sed facilisis justo sagittis. Morbi consequat libero tellus, quis sagittis diam tempor a.
+        echo "</tr><tr><td>";
+        echo "Businesses<br>".$row3[9];
+        echo "</td></tr><tr>";
+        
+        echo "</tr><tr><td>";
+        echo "Restaurants<br>".$row3[10];
+        echo "</td></tr><tr>";
 
-Nullam et mauris fringilla, mollis magna quis, tempus velit. Vivamus a purus ex. Integer arcu dolor, vulputate cursus dapibus id, posuere at arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec porttitor at lacus vel bibendum. Sed placerat ut magna sit amet interdum. Suspendisse tristique mauris non mattis tempus. Nullam nec massa nisi. Duis non dolor sit amet turpis vestibulum consequat in ut libero. Etiam lectus augue, tristique nec orci vitae, egestas auctor risus.
+        echo "</tr><tr><td>";
+        echo "Reminder<br>".$row3[11];
+        echo "</td></tr><tr>";
 
-Vivamus at rutrum ipsum. Suspendisse non mi et odio ultricies congue. Mauris luctus ultricies scelerisque. Sed eu tincidunt turpis, bibendum vehicula urna. Nullam facilisis ex augue, id lacinia lacus convallis non. Vivamus vitae eros blandit, porttitor neque in, aliquet orci. Aenean tristique elit a purus tristique ullamcorper. Suspendisse cursus faucibus tortor facilisis consequat. Nam sed feugiat libero, ac lobortis velit.
+        echo "</tr>";
+        }
+        echo "</table>";
+        }
+        ?>
+
 </div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
-  <style>
+ <style>
           ::-webkit-scrollbar-track{
             box-shadow:inset 0 0 5px grey;
             border-radius: 10px;
