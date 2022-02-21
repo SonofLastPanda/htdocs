@@ -29,7 +29,7 @@
     return $ciphertext;
 }
 
-    // values
+    // valuess
     $username = $_REQUEST["username"]; 
     $usermail = $_REQUEST["usermail"];
     $password = $_REQUEST["userpassword"];
