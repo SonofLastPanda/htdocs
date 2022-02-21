@@ -97,6 +97,7 @@
         }
         echo "</table>";
         }
+        include 'close.php';
         ?>
 
 </div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->

@@ -42,4 +42,5 @@ while($row = mysqli_fetch_row($result)){
   }
 }
 }
+include 'close.php';
 ?>
