@@ -9,30 +9,28 @@
 </body>
 
 <?php
+session_start();
 include 'connect.php';
-
-$result = mysqli_query($link, "SELECT users.password FROM users WHERE users.user_id=1");
 
 $uname=$_POST["uname"];
 $psw=$_POST["psw"];
 
-#check captacha, already done??
+$_SESSION['email']=$uname;
+header('Location: user_frontpage.php');
 
-#check if user excist in database
-$sql="SELECT * FROM users WHERE email='$uname'";
-$result=mysqli_query($link, $sql);
-if(! $uname) {
-#if(empty($uname) or empty($psw)) {
+$result = mysqli_query($link, "SELECT users.password FROM users WHERE users.email='$uname'");
+
+#check captacha! Else return error
+
+if(! $uname || ! $psw) { #check if username and password were entered
   #error, some fields are empty
   die ("Filed login. Some fields are left empty.");
-} elseif (! $psw){
-  die ("Filed login. Some fields are left empty.");
-} elseif (mysqli_num_rows($result) == 0){
+} elseif (mysqli_num_rows($result) == 0){ #check if user excist in database
     #error, no such username in db
     die("Failed login. Username or password is wrong.");
 } else{ #check if password is correct
 while($row = mysqli_fetch_row($result)){
-    $stored_psw=$row[2];
+    $stored_psw=$row[0];
     if ($psw == $stored_psw) {#(password_verify($psw, $stored_psw)){ #use php function to check if password is correct compared to hashed & salted password stored
     #password was correct, pass user to the next page
     header("location: user_frontpage.php");

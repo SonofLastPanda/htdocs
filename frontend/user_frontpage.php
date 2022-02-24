@@ -10,92 +10,63 @@
   <div class="container">
       <img src="map_background.png" class=body_frontpage>
       <div class="boxed_top">
-        <h6>Welcome username</h6>
+        <h6>Welcome user!</h6>
         <div class="p3">"We are in this together<br>and we will get through this,<br></div><div class="p3"><br><br><strong>together</strong>"</div><br><br><br>
         <div class="p4">- UN Secretary-General <br>Antonio Guterrez</div>
       </div>
       <div class="boxed_bottom">
-        <h5>Your favorite destinations:</h5>
+        <h5>Your favorite destinations</h5>
         <?php
+        session_start();
         include 'connect.php';
 
-        #$email = $_POST["uname"];
-        $email = "bb";
-        #$uid = mysqli_query($link, "SELECT users.user_id FROM users WHERE users.email = '$email'");
-        $uid='2';
-        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id WHERE bookmark.user_id = '$uid'");
-
-        if (mysqli_num_rows($fav_countries) > 0) {
-        echo "<table, th, td {
-          border='1';
-          border-collapse: collapse;
-          border-color: #CFD7C7;
-        }>";
+        #Displaying favorit countries
+        $email = $_SESSION['email'];
+        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.email = '$email'");
+        
         while($row = mysqli_fetch_row($fav_countries)){
-        echo "<tr><td>";
-        echo $row[0];
-        echo "</td></tr>";
-        }
-        echo "</table>";
-        }
+            echo "<p style='font-size:12pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>$row[0]</p>";
+          }
+
         ?>
       </div>
       <div class="boxed_info">
-        
+      
+      <!--Displaying info about favorite countries-->
         <h1>Your feed</h1>
         <div class="scrollbar" id="style">
           <div class="scroll_text">
         <?php
 
-      $c_name='Hong Kong';  
-      $regulations=mysqli_query($link, "SELECT * FROM regulation WHERE regulation.to = '$c_name'");
-      if (mysqli_num_rows($regulations) > 0) {
-        echo "<table border='1'>";
-        while($row3 = mysqli_fetch_row($regulations)){
+        $sql = "SELECT * FROM regulation WHERE regulation.to IN
+        (SELECT country.country_name
+        FROM country
+        JOIN bookmark ON country.country_id = bookmark.country_id
+        JOIN users ON users.user_id = bookmark.user_id
+        WHERE users.email = '$email'
+        )";
 
-        echo "<tr><td>";
-        echo $row3[1].' to '.$row3[2];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Boarding<br>".$row3[3];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Quarantine<br>".$row3[4];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Vaccine<br>".$row3[5];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Regulation<br>".$row3[6];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Face Mask<br>".$row3[7];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Public Transportation<br>".$row3[8];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Businesses<br>".$row3[9];
-        echo "</td></tr><tr>";
-        
-        echo "</tr><tr><td>";
-        echo "Restaurants<br>".$row3[10];
-        echo "</td></tr><tr>";
-
-        echo "</tr><tr><td>";
-        echo "Reminder<br>".$row3[11];
-        echo "</td></tr><tr>";
-
-        echo "</tr>";
-        }
-        echo "</table>";
+        $regulations=mysqli_query($link, $sql);
+        while($row = mysqli_fetch_row($regulations)){
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>From $row[1] To $row[2]</p>";
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Boarding</p>";
+          echo $row[3];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
+          echo $row[4];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
+          echo $row[5];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulations</p>";
+          echo $row[6];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
+          echo $row[7];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
+          echo $row[8];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
+          echo $row[9];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Restaurants</p>";
+          echo $row[10];
+          echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminder</p>";
+          echo $row[11];
         }
         include 'close.php';
         ?>
