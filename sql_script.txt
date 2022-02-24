@@ -62,3 +62,9 @@ INSERT INTO REGULATION VALUES
 
 
 ALTER TABLE vaccination_info ADD COLUMN vaccination_dose int(255)
+
+ALTER TABLE bookmark
+DROP INDEX country_id;
+
+ALTER TABLE bookmark
+DROP INDEX user_id;
