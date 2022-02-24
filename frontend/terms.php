@@ -8,6 +8,7 @@
   </head>
   <body>
   <div class="container">
+    <img src="map_background.png" class=body_frontpage>
     <div class= "boxed_login">
       <form action="login.php">
       <div>

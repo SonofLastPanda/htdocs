@@ -18,8 +18,6 @@
       <div>
       <h1 style= "text-align: center;">User Registration</h1>
       <p>Please fill in the form below:</p>
-      <label><b>Username:</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required><br><br>
       <label><b>Email:</b></label>
       <input type="text" placeholder="Enter Email" name="useremail" required><br><br>
       <label><b>Password:</b></label>
@@ -41,7 +39,7 @@
         <div class="captchabackground">
         <canvas id="captcha" style="position:relative; top:-45px; left:-20px;">captcha text</canvas> </div>
         <div><p style="position: relative;top: -125px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -162px; left: 205px;"><div>
-        <div><button id="submitButton" type="submit" class= "button button_register" style="position:relative; top:-120px; left:50px;">SUBMIT CAPTCHA</button><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; top:-120px;left:50px;">REFRESH CAPTCHA</button></div>
+        <div><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; top:-120px;left:130px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
         <script src="script.js"></script>
       <p style="position:relative; top:-100px; left:-10px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue; position:relative;">Terms & Privacy</a>.</p>

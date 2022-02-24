@@ -11,7 +11,7 @@
   <div class="container">
   <img src="map_background.png" class=body_frontpage>
     <div class= "boxed_login">
-      <form action="login.php">
+      <form action="user_frontpage.php">
       <div>
       <h1 style= "text-align: center; margin-right:10px;">Login</h1>
       <p>Please fill in the form below:</p>
@@ -22,11 +22,11 @@
         <p>Please validate by submitting your CAPTCHA:</p>
         <canvas id="captcha" style="position: relative; top: -35px;">captcha text</canvas>
         <div><p style="position: relative;top: -95px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -134px; left: 205px;"><div>
-        <div><button id="submitButton" type="submit" class= "button button_register" style="position:relative; left:55px;top:-105px;">SUBMIT CAPTCHA</button><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:55px; top:-105px;">REFRESH CAPTCHA</button></div>
+        <div><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:130px; top:-110px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
         <script src="script.js"></script>
         <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
-        <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
+        <button type=submit id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
       </div>
       </div>
       </form>

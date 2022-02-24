@@ -10,12 +10,12 @@
   <div class="container">
       <img src="map_background.png" class=body_frontpage>
       <div class="boxed_top">
-        <h6>Welcome <br>username!</h6>
+        <h6>Welcome!</h6><br>
         <div class="p3">"We are in this together<br>and we will get through this,<br></div><div class="p3"><br><br><strong>together</strong>"</div><br><br><br>
         <div class="p4">- UN Secretary-General <br>Antonio Guterrez</div>
       </div>
       <div class="boxed_bottom">
-        <h5>Your favorite destinations:</h5>
+        <h5>Your travel routes:</h5>
       </div>
       <div class="boxed_info">
         
