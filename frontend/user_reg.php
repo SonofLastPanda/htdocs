@@ -24,7 +24,7 @@
       <input type="password" placeholder="Enter Password" name="userpassword" required><br><br>
       <label><b>Confirm Password:</b></label>
       <input type="password" placeholder="Confirm Password" name="confirmpassword" required><br><br>
-      <label for="Nationality"><b>Nationality:</b></label>
+      <!-- <label for="Nationality"><b>Nationality:</b></label>
       <select id="nationality" name="nationality">
       <option value="HongKong">Hong Kong</option>
       <option value="India">India</option>
@@ -34,7 +34,8 @@
       <label><b># of Vaccine doses:</b></label>
       <input type="vaccine_doses" placeholder="Number of Doses" name="vaccine_doses" required><br><br>
       <label><b>Vaccine type:</b></label>
-      <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br><br>
+      <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br><br> -->
+  
       <p>Please validate by submitting your CAPTCHA:</p>
         <div class="captchabackground">
         <canvas id="captcha" style="position:relative; top:-45px; left:-20px;">captcha text</canvas> </div>
