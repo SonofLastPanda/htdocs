@@ -18,7 +18,7 @@
         <h5>Your favorite destinations</h5>
         <?php
         session_start();
-        include 'connect.php';
+        include 'db.php';
 
         #Displaying favorit countries
         $email = $_SESSION['email'];
@@ -34,7 +34,7 @@
       
       <!--Displaying info about favorite countries-->
         <h1>Your feed</h1>
-        <div class="scrollbar" id="style">
+        <div class="scrollbar">
           <div class="scroll_text" id="style">
         <?php
 

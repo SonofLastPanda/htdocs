@@ -10,9 +10,9 @@
 
 <?php
 session_start();
-include 'connect.php';
+include 'db.php';
 
-$uname=$_POST["uname"];
+$uname=$_POST["email"];
 $psw=$_POST["psw"];
 
 $_SESSION['email']=$uname;
