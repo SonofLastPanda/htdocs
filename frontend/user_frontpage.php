@@ -18,7 +18,7 @@
         <h5>Your favorite destinations</h5>
         <?php
         session_start();
-        include 'db.php';
+        include 'connect.php';
 
         #Displaying favorit countries
         $email = $_SESSION['email'];
