@@ -68,3 +68,5 @@ DROP INDEX country_id;
 
 ALTER TABLE bookmark
 DROP INDEX user_id;
+
+DROP TABLE vaccination_info;
