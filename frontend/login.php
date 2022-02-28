@@ -11,7 +11,7 @@
   <div class="container">
   <img src="map_background.png" class=body_frontpage>
     <div class= "boxed_login">
-      <form action="user_frontpage.php">
+      <form action="perform_login.php" method="POST">
       <div>
       <h1 style= "text-align: center; margin-right:10px;">Login</h1>
       <p>Please fill in the form below:</p>
@@ -26,7 +26,7 @@
         <span id="output"></span>
         <script src="script.js"></script>
         <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
-        <button type=submit id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
+        <button onclick="location.href = 'perform_login.php';" id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
       </div>
       </div>
       </form>
