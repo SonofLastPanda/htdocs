@@ -55,7 +55,6 @@
         header("Location: ./index.php");
     }   
     else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
     header("Location: ./user_reg.php");
     }
 
