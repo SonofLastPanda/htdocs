@@ -1,22 +1,17 @@
 CREATE TABLE Users (
-    user_id int NOT NULL UNIQUE,
+    user_id int NOT NULL UNIQUE AUTO_INCREMENT,
     email varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
-    citizenship varchar(255) NOT NULL,
+    citizenship varchar(255) NOT NULL DEFAULT 'Sweden',
     PRIMARY KEY(user_id)
     );
     
 CREATE TABLE Country(
-    country_id int NOT NULL UNIQUE,
+    country_id int NOT NULL UNIQUE AUTO_INCREMENT,
     country_name varchar(255) NOT NULL,
     PRIMARY KEY(country_id)
     );
     
-CREATE TABLE Vaccination_Info(
-    user_id int NOT NULL UNIQUE,
-    vaccination_name varchar(255) NOT NULL,
-    date_of_issue date,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id) );
     
 CREATE TABLE Admin (
     admin_id int NOT NULL,
@@ -24,10 +19,14 @@ CREATE TABLE Admin (
     password varchar(255) NOT NULL
     );
 CREATE TABLE Bookmark(
-    user_id int NOT NULL UNIQUE,
-    country_id int NOT NULL UNIQUE,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (country_id) REFERENCES Country(country_id));
+    user_id int NOT NULL,
+    country_id int NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) 
+    ON UPDATE CASCADE 
+    ON DELETE CASCADE,
+    FOREIGN KEY (country_id) REFERENCES Country(country_id) 
+    ON UPDATE CASCADE
+	ON DELETE CASCADE);
     
 insert into users values ('100', 'a@a', 'pwd123', 'earth');
 
@@ -59,14 +58,3 @@ INSERT INTO REGULATION VALUES
 ('SWE_AUT','Sweden','Austria','1. Proof of full vaccination (2 jabs) OR proof of past infection (the medical document needs to show the date of recovery – (for guests from the UK: an NHS email/text of a positive test is not sufficient) 2. AND a negative PCR test (valid for 72 hours) OR proof of a booster jab (booster is valid from the first day) 3. See further details below (What proof is accepted?)','Entry without vaccination / recovery Entry for touristic purposes or business travel is not possible without quarantine\, if you cannot meet the “2-G” requirements. ','Yes','','','','','','');
 
 
-
-
-ALTER TABLE vaccination_info ADD COLUMN vaccination_dose int(255)
-
-ALTER TABLE bookmark
-DROP INDEX country_id;
-
-ALTER TABLE bookmark
-DROP INDEX user_id;
-
-DROP TABLE vaccination_info;

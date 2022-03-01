@@ -30,12 +30,11 @@
 }
 
     // valuess
-    $username = $_REQUEST["username"]; 
+    //$username = $_REQUEST["username"]; 
     $usermail = $_REQUEST["usermail"];
     $password = $_REQUEST["userpassword"];
     $citizenship=$_REQUEST["nationality"];
-    $vaccinedoses = $_REQUEST["vaccine_doses"];
-    $vaccinetype= $_REQUEST["vaccine_type"];
+ 
 
 
 
@@ -46,18 +45,18 @@
     // username and user id to be encrypted
 
    // $username=encrypt($username);
-    //$usermail=encrypt($usermail);
-    //$password=encrypt($password);
+    $usermail=encrypt($usermail);
+    $password=encrypt($password);
 
     //SQL Queries to insert data
 
-    $sql = "INSERT INTO Users (user_id, email, password) VALUES ('$username', '$usermail', '$password');";
-    $sql .= "INSERT INTO Vaccination_Info (user_id,vaccination_name,vaccination_dose ) VALUES ('$username', '$vaccinetype', '$vaccinedoses')";
+    $sql = "INSERT INTO Users (user_id, email, password) VALUES (NULL, '$usermail', '$password');";
     if(mysqli_multi_query($link, $sql)){
-    echo "Records inserted successfully.";
+        header("Location: ./index.php");
     }   
     else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    header("Location: ./user_reg.php");
     }
 
     
