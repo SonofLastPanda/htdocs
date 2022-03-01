@@ -1,7 +1,7 @@
 CREATE TABLE Users (
     user_id int NOT NULL UNIQUE AUTO_INCREMENT,
-    email varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
+    email LONGTEXT,
+    password LONGTEXT NOT NULL,
     citizenship varchar(255) NOT NULL DEFAULT 'Sweden',
     PRIMARY KEY(user_id)
     );
