@@ -66,7 +66,7 @@
     //}   
     
 
-    //Commit Transaction
+    //Commit Transactionn
 
     if (!mysqli_commit($link)) {
     echo "Commit transaction failed";
