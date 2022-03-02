@@ -4,7 +4,7 @@ $username2 = "root";
 $password2 = "";
 $dbname2 = "batgirl_2";
 
-//Establishing connection
+//Establishing connectionn
 $link = mysqli_connect($hostname2, $username2, $password2, $dbname2);
 
 if (!$link) { //Error message if no connection to database
