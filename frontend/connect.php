@@ -1,8 +1,8 @@
 <?php
 $hostname2 = 'localhost';
 $username2 = "root";
-$password2 = "";
-$dbname2 = "batgirl_2";
+$password2 = "root";
+$dbname2 = "batgirl_project";
 
 //Establishing connectionn
 $link = mysqli_connect($hostname2, $username2, $password2, $dbname2);
