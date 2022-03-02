@@ -50,7 +50,7 @@
     $password=encrypt($password);
 
 
-    //Start t
+    //Start tr
     mysqli_autocommit($link,TRUE);
 
     //SQL Queries to insert data
