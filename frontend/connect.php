@@ -1,11 +1,14 @@
 <?php
-    $hostname = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "BATGIRL_PROJECT";
-    $link = mysqli_connect($hostname, $username, $password, $dbname);
-    if (!$link) {
-        echo "Error: Unable to connect to MySQL." . mysqli_connect_error() . PHP_EOL;
-        exit;
-    }
+$hostname2 = 'localhost';
+$username2 = "root";
+$password2 = "";
+$dbname2 = "batgirl_2";
+
+//Establishing connection
+$link = mysqli_connect($hostname2, $username2, $password2, $dbname2);
+
+if (!$link) { //Error message if no connection to database
+echo "Error: Unable to connect to MySQL." . mysqli_connect_error() . PHP_EOL;
+exit;
+}
 ?>
