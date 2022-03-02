@@ -157,11 +157,20 @@
     background-color: #f8f7f1;
     color: #40798C;
     border: 2px solid #CFD7C7;
-    left: 30%
+    left: 30%;
   }
   .button_register:hover {
     background-color: #CFD7C7;
     color: #f8f7f1;
+  }
+  .button_admin{
+    background-color:#CFD7C7;
+    color:#40798C;
+    border:2px solid #CFD7C7;
+    left:30%;
+  }
+  .button_admin:hover{
+    background-color:#f8f7f1;
   }
   .container {
     position: relative;
@@ -334,6 +343,10 @@
     margin-bottom: 100px;
     padding-top:30px;
   }
+  .info_box{
+    font-family:'Red Hat Display';
+    background-color:#fcfaf4;
+  }
   .scrollbar{
 	  float: left;
     text-align: justify;
@@ -442,7 +455,7 @@
   .scrollbar_country{
 	  float: left;
     text-align: justify;
-	  height: 550px;
+	  height: 450px;
 	  width: calc(100%-20px);
     background: #fcfaf4;
     margin-bottom: 100px;
@@ -456,18 +469,21 @@
     background-color:#fcfaf4;
     margin-bottom:2px;
     padding-left:20px;
+    margin-top:0px;
   }
   #style::-webkit-scrollbar{
     width:12px;
     background-color: #fcfaf4;
     margin-left:10px;
+    margin-top:0px;
   }
   #style::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background-color: #40798C;
+
   }
   .scroll_text_country{
-    height:500px;
+    height:450px;
     width:1000px;
     margin-left: 70px;
     /* padding-left:100px; */
@@ -489,5 +505,6 @@
     margin-left:320px;
     color:#40798C;
   }
+
 
 
