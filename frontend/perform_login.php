@@ -38,17 +38,14 @@ $psw=$_POST["psw"];
 
 $_SESSION['username']=$uname;
 
+$admin=FALSE;
 $result = mysqli_query($link, "SELECT users.password FROM users WHERE users.username='$uname'");
-
-
-#$captcha="<script>document.writeln(cap);</script>";
-#if ($captcha != "Correct!") {
-# echo $captcha;
-#  die("Wrong captcha");
-#} else {
-# echo $captcha;
-#};
-
+if (mysqli_num_rows($result) == 0){ #it's not a user
+  $result = mysqli_query($link, "SELECT admin.password FROM admin WHERE admin.adminname='$uname'");
+  if (mysqli_num_rows($result) != 0){
+    $admin=TRUE;
+  }
+}
 
 $occured_error = "";
 if(! $uname || ! $psw) { #check if username and password were entered
@@ -70,8 +67,10 @@ while($row = mysqli_fetch_row($result)){
 }
 
 #Error message when wrong or missing password/username are entered
-if (! $occured_error) {
+if ((! $occured_error) && ($admin == FALSE)) {
   header("location: user_frontpage.php");
+} elseif ((! $occured_error) && ($admin == TRUE)) {
+  header("location: admin_frontpage.php");
 } else {
   echo "<script type='text/javascript'>alert('$occured_error');
 window.location='login.php';
