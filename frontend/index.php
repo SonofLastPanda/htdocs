@@ -35,7 +35,7 @@
           $catname2 = $row2["TO"]; 
           print "<option>$catname2</option>"; 
         } 
-        include 'closeDB.php'; //Closing database conncetion
+        include 'close.php'; //Closing database conncetion
         ?> </select>
         </div><br>
         <button id="country_button" class="button button_register" style="margin-top:20px; margin-left:20px;">SEARCH</button>
