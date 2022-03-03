@@ -59,11 +59,5 @@
     }
     }
 
-
     include 'close.php';
 ?>
-
-</center>
-</body>
-  
-</html>

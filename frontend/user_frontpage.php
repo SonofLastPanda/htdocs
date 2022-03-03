@@ -42,7 +42,7 @@
 
       <div style="display:inline-block; position: relative; top:29%">
         <h5 style=  "margin-bottom: 5px;">Add favorite travel route</h5>
-        <form action="admin_frontpage.php"> <!-- change to correct page when it is made -->
+        <form action="change_bookmarks.php"> <!-- change to correct page when it is made -->
             <div style="float: left; display:flex; flex-direction: row; "><p style="padding-left:32px;">Departure: &nbsp; </p> <select name="FROM" style="top:-6px; left:-25px; height:25px; margin-top:15px;"> <!--Drop down list-->
             <?php 
             $result = mysqli_query($link,"SELECT DISTINCT regulation.FROM FROM regulation"); 
@@ -63,7 +63,7 @@
         </div>
         </form>
 
-        
+
       </div>
       <div class="boxed_info">
       
