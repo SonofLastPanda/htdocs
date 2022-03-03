@@ -27,8 +27,8 @@
 }
 
     // valuess
-    //$username = $_REQUEST["username"]; 
-    $usermail = $_REQUEST["usermail"];
+    $username = $_REQUEST["username"]; 
+    $useremail = $_REQUEST["useremail"];
     $password = $_REQUEST["userpassword"];
     $citizenship=$_REQUEST["nationality"];
  
@@ -41,11 +41,7 @@
 
     // username and user id to be encrypted
     //$username=encrypt($username);
-    $usermail=encrypt($usermail);
-    $password=encrypt($password);
-
-   // $username=encrypt($username);
-    $usermail=encrypt($usermail);
+    $useremail=encrypt($useremail);
     $password=encrypt($password);
 
     session_start();
@@ -53,16 +49,18 @@
 
     //SQL Queries to insert data
 
-    $sql = "INSERT INTO Users (user_id, email, password) VALUES (NULL, '$usermail', '$password');";
-    if(mysqli_multi_query($link, $sql)){
-        header("Location: ./index.php");
-    }   
-    else{
-    header("Location: ./user_reg.php");
-    }
+    //$sql = "INSERT INTO Users (user_id, email, password) VALUES (NULL, '$usermail', '$password');";
+    //if(mysqli_multi_query($link, $sql)){
+    //    header("Location: ./index.php");
+    //}   
+    //else{
+    //header("Location: ./user_reg.php");
+    //}
+
+    mysqli_autocommit($link,TRUE);
 
     //SQL Queries to insert data
-    mysqli_query($link,"INSERT INTO users (username, email, password, citizenship) VALUES ('$username', '$usermail', '$password','$citizenship')");
+    mysqli_query($link,"INSERT INTO users (username, email, password, citizenship) VALUES ('$username', '$useremail', '$password','$citizenship')");
    // mysqli_query($link,"INSERT INTO Vaccination_Info (user_id,vaccination_name,vaccination_dose ) VALUES ('$username', '$vaccinetype', '$vaccinedoses')");
     //if(mysqli_multi_query($link, $sql))
     //{
@@ -73,7 +71,7 @@
     //Commit Transactionn
     if (!mysqli_commit($link)) {
     echo "Commit transaction failed";
-    mysqli_rollback($con);
+    mysqli_rollback($link);
     exit();
 }
     header("location: user_frontpage.php");

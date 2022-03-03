@@ -33,14 +33,14 @@
     }
 
     #Error message if passwords doesn't match
-    if (! $password_error) {
-    header("location: user_frontpage.php");
-    } else {
+    if ($password_error) {
     echo "<script type='text/javascript'>alert('$password_error');
     window.location='user_info.php';
     </script>";
-    }
 
+
+    } else {
+    header("location: user_frontpage.php");
     #Transaction to update database
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
@@ -57,6 +57,8 @@
         mysqli_rollback($link);
         exit();
     }
+    }
+
 
     include 'close.php';
 ?>

@@ -14,7 +14,7 @@
     <div class="scrollbar" id="style2">
       <div class="boxed_c" id="style2">
       <div class="scroll_user" id="style2">
-      <form action="./performreg.php">
+      <form action="./performreg.php" method="POST" id="submit">
       <div>
       <h1 style= "text-align: center;">User Registration</h1>
       <p>Please fill in the form below:</p>
