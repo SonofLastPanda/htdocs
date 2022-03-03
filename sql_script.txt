@@ -133,3 +133,12 @@ INSERT INTO REGULATION VALUES
 ('SWE_ESP','Sweden','Spain','Everyone entering Spain from other countries, including international transits, regardless of nationality or age, must complete a Health Control Form (FCS) and obtain their QR code to present at boarding, and at health control points on arrival in Spain. If they are also travelling from an at-risk country, in order to enter Spain they will also need to present 1: An EU Digital COVID Certificate (see information). 2: Or a certificate of vaccination, a certificate of diagnosis or a certificate of recovery.','As of December 27th, 2021, no traveler from abroad is subject to quarantine upon arrival in Spain.',NULL,NULL,'Required in some cases','Operating','Open','Open',NULL);
 
 ALTER TABLE users ADD username varchar(255) NOT NULL;
+
+DROP TABLE admin;
+CREATE TABLE admin (
+    admin_id int NOT NULL UNIQUE AUTO_INCREMENT,
+    adminname varchar(255) NOT NULL,
+    email LONGTEXT,
+    password LONGTEXT NOT NULL,
+    PRIMARY KEY(admin_id)
+    );

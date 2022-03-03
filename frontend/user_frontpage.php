@@ -38,6 +38,32 @@
           }
 
         ?>
+
+
+      <div style="display:inline-block; position: relative; top:29%">
+        <h5 style=  "margin-bottom: 5px;">Add favorite travel route</h5>
+        <form action="admin_frontpage.php"> <!-- change to correct page when it is made -->
+            <div style="float: left; display:flex; flex-direction: row; "><p style="padding-left:32px;">Departure: &nbsp; </p> <select name="FROM" style="top:-6px; left:-25px; height:25px; margin-top:15px;"> <!--Drop down list-->
+            <?php 
+            $result = mysqli_query($link,"SELECT DISTINCT regulation.FROM FROM regulation"); 
+            while($row = mysqli_fetch_assoc($result)) { 
+            $catname = $row["FROM"]; 
+            print "<option>$catname</option>"; 
+            }  
+            ?> </select></div>
+            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:32px;">Destination: </p> <select name="TO" style="top:-6px; left:-25px; height:25px; margin-top:15px;"> <!--Drop down list -->
+            <?php 
+            $result2 = mysqli_query($link,"SELECT DISTINCT regulation.TO FROM regulation"); 
+            while($row2 = mysqli_fetch_assoc($result2)) { 
+            $catname2 = $row2["TO"]; 
+            print "<option>$catname2</option>"; 
+            } 
+            ?> </select></div>
+            <button id="admin_country_button" class="button button_register" type="submit" style="margin-top:5px; left:3px;">ADD ROUTE</button>
+        </div>
+        </form>
+
+        
       </div>
       <div class="boxed_info">
       
