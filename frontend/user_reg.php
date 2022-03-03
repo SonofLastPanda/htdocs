@@ -18,24 +18,22 @@
       <div>
       <h1 style= "text-align: center;">User Registration</h1>
       <p>Please fill in the form below:</p>
+      <label><b>Username:</b></label>
+      <input type="text" placeholder="Enter a Fun Username" name="username" required><br><br>
       <label><b>Email:</b></label>
-      <input type="text" placeholder="Enter Email" name="useremail" required><br><br>
+      <input type="email" placeholder="Enter Email" name="useremail" required><br><br>
       <label><b>Password:</b></label>
-      <input type="password" placeholder="Enter Password" name="userpassword" required><br><br>
+      <input type="password" placeholder="Enter Password" name="userpassword" id="userpassword" required><br><br>
       <label><b>Confirm Password:</b></label>
-      <input type="password" placeholder="Confirm Password" name="confirmpassword" required><br><br>
-      <!-- <label for="Nationality"><b>Nationality:</b></label>
+      <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required><br><br>
+      <label for="Nationality"><b>Nationality:</b></label>
       <select id="nationality" name="nationality">
+      <!--<option value="choose">Nationality</option>
       <option value="HongKong">Hong Kong</option>
-      <option value="India">India</option>
+      <option value="India">India</option>-->
       <option value="Sweden">Sweden</option>
-      <option value="Turkey">Türkiye</option>
+      <!--<option value="Turkey">Türkiye</option>-->
       </select><br><br>
-      <label><b># of Vaccine doses:</b></label>
-      <input type="vaccine_doses" placeholder="Number of Doses" name="vaccine_doses" required><br><br>
-      <label><b>Vaccine type:</b></label>
-      <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br><br> -->
-  
       <p>Please validate by submitting your CAPTCHA:</p>
         <div class="captchabackground">
         <canvas id="captcha" style="position:relative; top:-45px; left:-20px;">captcha text</canvas> </div>
@@ -44,8 +42,10 @@
         <span id="output"></span>
         <script src="script.js"></script>
       <p style="position:relative; top:-100px; left:-10px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue; position:relative;">Terms & Privacy</a>.</p>
+
+     
       <div>
-      <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style= "margin-left:43px; top:-90px;">REGISTER</button>
+      <button type="submit" form="submit"  value="Submit" onclick="return Validate()"   ; style= "margin-left:43px; top:-90px;">REGISTER</button>
       </div>
       </div>
       </div>
@@ -55,5 +55,17 @@
   </body>
 </div>
 </div>
+
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("userpassword").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 </html>
 <!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->
