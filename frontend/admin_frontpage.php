@@ -4,6 +4,7 @@ include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
 $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
+include "close_db.php";
 ?>
 <html>
   <head>
@@ -56,66 +57,39 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
     </div>
     <div class="boxed_info">
       <h1> <?php echo "From: $FROM &nbsp &nbsp To: $TO &nbsp" ?></h1>
-        <div class=boxed_c_l style= "background-color:#f8f7f1; position: relative; top:-10px; left:45px; height: 475px; border-style:dotted; border-color:#E2E8E5, border-width:5px;" >
-          <p style='font-size:18pt; font-weight:bolder; position:relative;'>Current information</p>
-          <div class="scrollbar_country" id="style">
-            <div class="scroll_text_country" id="style" style="left:380px; width:405px; height:410px; top:295px;">
-            <?php
-              include 'connect.php'; //Including database connection
-              $FROM = $_GET["FROM"];
-              $TO = $_GET["TO"];
-              $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
-              
-              while($row = mysqli_fetch_row($result)){ 
-              if (($row[0]=="$FROM")&&($row[1]=="$TO")){ 
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Boarding</p>";
-                echo $row[2];
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
-                echo $row[3];
-                // echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulations</p>";
-                // echo $row[4];
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
-                echo $row[5];
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
-                echo $row[6];
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
-                echo $row[7];
-                echo "<p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
-                echo $row[8];
-              }}
-              ?>
-            </div>
-            </div>
-            </div>
-            <div class=boxed_c_l style= "background-color:#f8f7f1; border-style:dotted; left:900px; top: 214px; height: 475px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
-                <p style='font-size:18pt; font-weight:bolder; position:relative;'>Update information</p>
-                <div class="scrollbar_country" id="style">
-                  <div class="scroll_text_country" id="style" style= "margin-left:0px; margin-bottom:10px; height:410px; margin-top:-20px;">
-                  <form>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Boarding</p>
-                    <textarea id="new_boarding_info" rows = "5" cols = "45" name = "new_boarding_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>
-                    <textarea id="new_quarantine_info" rows = "5" cols = "45" name = "new_quarantine_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulations</p>
-                    <textarea id="new_regulation_info" rows = "5" cols = "45" name = "new_regulation_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>
-                    <textarea id="new_vaccination_info" rows = "5" cols = "45" name = "new_vaccination_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>
-                    <textarea id="new_facemask_info" rows = "5" cols = "45" name = "new_facemask_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>
-                    <textarea id="new_publictransport_info" rows = "5" cols = "45" name = "new_publictransport_info">
-                    </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>
-                    <textarea id="new_businesses_info" rows = "5" cols = "45" name = "new_businesses_info">
-                    </textarea><br></form>
-          </div>
+        
+            
+            <div class=boxed_c_l style= "background-color:#fcfaf4; border-style:dotted; left:425px; top: 214px; height: 475px; width:900px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
+               <?php
+                  include 'connect.php';
+                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");              
+                  while($row = mysqli_fetch_row($result)){ 
+                  if (($row[0]=="$FROM")&&($row[1]=="$TO")){
+                    // Listing all info
+                    echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-36px; margin-bottom:-20px;'>Boarding</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[2] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[3] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[5] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[6] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[7] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[8] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[9] </textarea>";
+                    }}
+                    echo "</div>";
+                    echo "</div>";
+                  include "close_db.php"
+                ?>
+           </div>
+               
         </div>
-        <button onclick="location.href = 'update_database.php';" id="button_admin"; class="button button_admin"; style="top:430px; left:-165px;">UPDATE</button>
+        <button onclick="location.href = 'update_database.php';" id="button_admin"; class="button button_admin"; style="top:735px; left:130px;">UPDATE</button>
       </div>
   </body>
   <?php include "close_db.php" ?>

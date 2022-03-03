@@ -47,6 +47,8 @@ include "close_db.php"
             echo $row[7];
             echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
             echo $row[8];
+            echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
+            echo $row[9];
             }}
             echo "</div>";
             echo "</div>";

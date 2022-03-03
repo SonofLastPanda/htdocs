@@ -70,7 +70,7 @@
 
     if (!mysqli_commit($link)) {
     echo "Commit transaction failed";
-    mysqli_rollback($link);
+    mysqli_rollback($con);
     exit();
 }
     

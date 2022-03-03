@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- This file is the user frontpage -->
 <html>
   <head>
     <link href="styles.css" rel="stylesheet" type="text/css"/> <!-- Connecting to the css file named styles.css -->
@@ -8,30 +7,22 @@
     </div>
   </head>
   <body>
-  <?php
-      session_start();
-      include 'connect.php';
-      $username = $_SESSION['username'];
-  ?>
   <div class="container">
       <img src="map_background.png" class=body_frontpage>
       <div class="boxed_top">
-        <h6>Welcome <?php echo $username;?>!</h6><br>
+        <h6>Welcome!</h6><br>
         <div class="p3">"We are in this together<br>and we will get through this,<br></div><div class="p3"><br><br><strong>together</strong>"</div><br><br><br>
         <div class="p4">- UN Secretary-General <br>Antonio Guterrez</div>
       </div>
       <div class="boxed_bottom">
         <h5>Your favorite destinations</h5>
         <?php
-        
-        #Check if connection to database is estalished 
-        if (!$link) {
-          echo "Error: Unable to connect to MySQL." . mysqli_connect_error() . PHP_EOL;
-          exit;
-      }
+        session_start();
+        include 'connect.php';
 
         #Displaying favorit countries
-        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$username'");
+        $email = $_SESSION['email'];
+        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.email = '$email'");
         
         while($row = mysqli_fetch_row($fav_countries)){
             echo "<p style='font-size:12pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>$row[0]</p>";
@@ -52,7 +43,7 @@
         FROM country
         JOIN bookmark ON country.country_id = bookmark.country_id
         JOIN users ON users.user_id = bookmark.user_id
-        WHERE users.username = '$username'
+        WHERE users.email = '$email'
         )";
 
         $regulations=mysqli_query($link, $sql);
@@ -81,19 +72,5 @@
         ?>
 
 </div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
- <style>
-          ::-webkit-scrollbar-track{
-            box-shadow:inset 0 0 5px grey;
-            border-radius: 10px;
-          }
-          ::webkit-scrollbar-thumb{
-           background-color:#40798C;
-            border-radius: 10px;
-          }
-          ::-webkit-scrollbar-thumb:hover{
-            background-color: #011638;
-          }
-  </style>
-
 </div> 
   </body>
