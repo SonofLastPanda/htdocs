@@ -2,7 +2,6 @@
 include 'connect.php';
 session_start();
 
-$new_from=$_GET["FROM"];
 $new_to=$_GET["TO"];
 $username=$_SESSION['username'];
 
@@ -23,19 +22,6 @@ mysqli_query($link, "INSERT INTO bookmark (bookmark.user_id, bookmark.country_id
                     WHERE users.username = '$username'
                     AND country.country_name = '$new_to');
                     ") ? null: $queries_ok=FALSE;
-
-$sq="INSERT INTO bookmark (bookmark.user_id, bookmark.country_id)
-                    VALUES (
-                        (SELECT users.user_id
-                        FROM users
-                        WHERE users.username = '$username'),
-                        (SELECT country.country_id
-                        FROM country
-                        WHERE country.country_name = '$new_to'))
-                        WHERE NOT EXISTS (SELECT *
-                        FROM bookmark
-                        WHERE bookmark.user_id)
-                        ";
 
 #Commit Transaction
 if ($queries_ok) {
