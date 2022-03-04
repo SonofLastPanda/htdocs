@@ -18,7 +18,7 @@ include "close_db.php"
 <img src="map_background.png" class=body_frontpage>
 <div class="boxed_country">
 <h1 style="position:fixed; top: 140px; left:465px;"> <?php echo "From: $FROM &nbsp &nbsp To: $TO &nbsp" ?></h1>
-<button onclick="location.href = 'report.php';" id="button_admin"; class="button button_register"; style="top:20px; left:470px;">REPORT INVALID INFO</button>
+<button onclick="location.href = 'report.php';" id="button_admin"; class="button button_register"; style="top:20px; left:-470px;">REPORT INVALID INFO</button>
 <img src="face_mask.png" alt="face_mask_icon" width="50" height="50" style="position:fixed; top:240px; left: 310px;">
 <img src="public_transportation.png" alt="public_transportation_icon" width="50" height="50" style="position:fixed; top:240px; left:800px;">
 <img src="businesses.png" alt="businesses_icon" width="50" height="50" style="position:fixed; top:300px; left:310px;">
