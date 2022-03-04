@@ -76,89 +76,90 @@
 
         $regulations=mysqli_query($link, $sql);
         while($row = mysqli_fetch_row($regulations)){
-           echo "<p style='color:#40798C; font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-30px; margin-bottom:-20px;'>Boarding</p>";
-           if (!empty($row[2])) {  //Checks if the value is not NULL
-             echo $row[2]; //Prints the value if it is not NULL
-           }
-           else { //Prints a message if it is NULL
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-30px;'>From $row[1] To $row[2]</p>";
+          echo "<p style='color:#40798C; font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-30px; margin-bottom:-20px;'>Boarding</p>";
+          if (!empty($row[3])) {  //Checks if the value is not NULL
+            echo $row[3]; //Prints the value if it is not NULL
+          }
+          else { //Prints a message if it is NULL
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
-           if (!empty($row[3])) {  
-             echo $row[3]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
+          if (!empty($row[4])) {  
+            echo $row[4]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
-           if (!empty($row[5])) {  
-             echo $row[5]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
+          if (!empty($row[5])) {  
+            echo $row[5]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulation</p>";
-           if (!empty($row[4])) {  
-             echo $row[4]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulation</p>";
+          if (!empty($row[6])) {  
+            echo $row[6]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
-           if (!empty($row[6])) {  
-             echo $row[6]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
+          if (!empty($row[7])) {  
+            echo $row[7]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
-           if (!empty($row[7])) {  
-             echo $row[7]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
+          if (!empty($row[8])) {  
+            echo $row[8]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
-           if (!empty($row[8])) {  
-             echo $row[8]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
+          if (!empty($row[9])) {  
+            echo $row[9]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Restaurants</p>";
-           if (!empty($row[9])) {  
-             echo $row[9]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Restaurants</p>";
+          if (!empty($row[10])) {  
+            echo $row[10]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminders</p>";
-           if (!empty($row[10])) {  
-             echo $row[10]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminders</p>";
+          if (!empty($row[11])) {  
+            echo $row[11]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
 
-           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
-           if (!empty($row[11])) {  
-             echo $row[11]; 
-           }
-           else {
-           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
-           }
-                       }
-           echo "</div>";
-           echo "</div>";
-           include "close_db.php"
+          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
+          if (!empty($row[12])) {  
+            echo $row[12]; 
+          }
+          else {
+          echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
+          }
+                      }
+          echo "</div>";
+          echo "</div>";
+          include "close.php"
           ?>
 
 </div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
