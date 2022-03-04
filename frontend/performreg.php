@@ -11,7 +11,7 @@
 <?php
     // establish server connection
     define("encryption_method", "AES-128-CBC");
-    define("key", "your_amazing_key_here"); //change the encryption key?? The web site says one should
+    define("key", "batgirl_to_the_rescue");
     include 'connect.php';
 
     //encrypt data    
