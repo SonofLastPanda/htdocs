@@ -343,6 +343,15 @@
     margin-bottom: 100px;
     padding-top:30px;
   }
+  .boxed_favourites{
+    background-color:#CFD7C7;
+    height:150px;
+    width:200px;
+    position:fixed;
+    margin-left:25px;
+    margin-bottom:10px;
+    overflow-y: scroll;
+  }
   .info_box{
     font-family:'Red Hat Display';
     background-color:#fcfaf4;
@@ -359,7 +368,6 @@
     margin-left:50px;
     scroll-margin-bottom: 2em;
   }
-
   #style::-webkit-scrollbar-track{
     border-radius: 10px;
     background-color:#fcfaf4;
@@ -391,6 +399,22 @@
   #style2::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background-color: #40798C;
+    padding-left:-30px;
+    margin-top:10px;
+  }
+  #style3::-webkit-scrollbar{
+    width:12px;
+    background-color: #CFD7C7;
+    margin-left:10px;
+  }
+  #style3::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #40798C;
+  }
+  #style3::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color:#CFD7C7;
+    margin-bottom:20px;
     padding-left:-30px;
     margin-top:10px;
   }

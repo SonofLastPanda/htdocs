@@ -23,26 +23,29 @@
       </div>
       <div class="boxed_bottom">
         <h5>Your favorite destinations</h5>
+
         <?php
-        
+        echo "<div class='boxed_favourites' id='style3'>";
         #Check if connection to database is estalished 
         if (!$link) {
           echo "Error: Unable to connect to MySQL." . mysqli_connect_error() . PHP_EOL;
           exit;
       }
 
-        #Displaying favorit countries
+        #Displaying favorite countries
         $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$username'");
         
         while($row = mysqli_fetch_row($fav_countries)){
-            echo "<p style='font-size:12pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>$row[0]</p>";
+            echo "<img src='heart.png' alt='face_mask_icon' width='20' height='15' style='position:relative; left:-80px;'>";
+            echo "<p style='font-size:12pt; font-weight:bolder; position:relative; left:-15px; top:-38px; margin-bottom:-19px;text-align:left;'>$row[0]</p>";
           }
 
         ?>
+        </div>
 
 
       <div style="display:inline-block; position: relative; top:40%">
-        <h5 style=  "margin-bottom: 5px;">Add favorite destinations</h5>
+        <h5 style=  "margin-bottom: 10px;">Add favorite destinations</h5>
         <form action="change_bookmarks.php">
             <div style="float: left; display:flex; flex-direction: row;"><select name="TO" style="top:-6px; left:-30px; height:25px; margin-top:15px; margin-bottom:15px; margin-left:65px;"> Drop down list
         <?php 
@@ -76,7 +79,17 @@
 
         $regulations=mysqli_query($link, $sql);
         while($row = mysqli_fetch_row($regulations)){
-          echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-30px;'>From $row[1] To $row[2]</p>";
+          echo "<h1 style='font-size:30pt; font-family:'Righteous'; font-weight:bolder; position:relative; margin-left:0px; left:-50px; top:-30px;'>From: $row[1] To: $row[2]</h1>";
+          echo "<div style='margin-bottom:-300px; margin-top:70px;'>";
+          echo "<img src='face_mask.png' alt='face_mask_icon' width='50' height='50' style='position:relative; top:-50px;'>";
+          echo "<p font-family:'Red Hat Display' style='text-align:left; width:400px; position:relative; top:-105px; left:10px;'> $row[7] </p>";
+          echo "<img src='public_transportation.png' alt='face_mask_icon' width='50' height='50' style='position:relative; top:-154px; left:400px;'>";
+          echo "<p font-family:'Red Hat Display' style='text-align:left; width:400px; position:relative; top:-210px; left:415px;'> $row[8] </p>";
+          echo "<img src='businesses.png' alt='face_mask_icon' width='50' height='50' style='position:relative; top:-190px;'>";
+          echo "<p font-family:'Red Hat Display' style='text-align:left; width:400px; position:relative; top:-244px; left:10px;'> $row[9] </p>";
+          echo "<img src='restaurants.png' alt='face_mask_icon' width='50' height='50' style='position:relative; top:-294px; left:400px;'>";
+          echo "<p font-family:'Red Hat Display' style='text-align:left; width:400px; position:relative; top:-350px; left:416px;'> $row[10] </p>";
+          echo "</div>";
           echo "<p style='color:#40798C; font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-30px; margin-bottom:-20px;'>Boarding</p>";
           if (!empty($row[3])) {  //Checks if the value is not NULL
             echo $row[3]; //Prints the value if it is not NULL
@@ -156,6 +169,7 @@
           else {
           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
           }
+          echo "<br><br><br><br><br>";
                       }
           echo "</div>";
           echo "</div>";
@@ -163,19 +177,7 @@
           ?>
 
 </div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
- <style>
-          ::-webkit-scrollbar-track{
-            box-shadow:inset 0 0 5px grey;
-            border-radius: 10px;
-          }
-          ::webkit-scrollbar-thumb{
-           background-color:#40798C;
-            border-radius: 10px;
-          }
-          ::-webkit-scrollbar-thumb:hover{
-            background-color: #011638;
-          }
-  </style>
+
 
 </div> 
   </body>
