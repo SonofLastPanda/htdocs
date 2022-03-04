@@ -3,7 +3,7 @@
 include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
-$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
+$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Vaccine, regulation.Regulation, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder, regulation.Sources FROM regulation");
 include "close_db.php";
 ?>
 <html>
@@ -19,7 +19,7 @@ include "close_db.php";
         <div class="boxed_top" style= "padding-top: 10px;">
             <h4 style= "color:#40798C; position: relative; top: 10px; line-height:1.2;" >Edit Depature and Destination<h4>
             <form action="admin_frontpage.php">
-            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:32px; padding-top:5px;">Departure: &nbsp; </p> <select name="FROM" style="top:-10px; left:-25px; height:25px; margin-top:15px;"> <!--Drop down list-->
+            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:20px; padding-top:5px;">Departure: &nbsp; </p> <select name="FROM" style="top:-10px; left:-25px; height:25px; margin-top:15px;"> <!--Drop down list-->
             <?php 
             // include "connect.php"; //Including database connection
             
@@ -29,7 +29,7 @@ include "close_db.php";
             print "<option>$catname</option>"; 
             }  
             ?> </select></div>
-            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:32px;">Destination: </p> <select name="TO" style="top:-10px; left:-25px; height:25px; margin-top:10px;"> <!--Drop down list -->
+            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:20px;">Destination: </p> <select name="TO" style="top:-10px; left:-25px; height:25px; margin-top:10px;"> <!--Drop down list -->
             <?php 
             // include "connect.php"; //Including database connection
             $result2 = mysqli_query($link,"SELECT DISTINCT regulation.TO FROM regulation"); 
@@ -57,8 +57,7 @@ include "close_db.php";
     </div>
     <div class="boxed_info">
       <h1> <?php echo "From: $FROM &nbsp &nbsp To: $TO &nbsp" ?></h1>
-        
-            
+     
             <div class=boxed_c_l style= "background-color:#fcfaf4; border-style:dotted; left:425px; top: 214px; height: 475px; width:900px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
                <?php
                   include 'connect.php';
@@ -67,29 +66,33 @@ include "close_db.php";
                   if (($row[0]=="$FROM")&&($row[1]=="$TO")){
                     // Listing all info
                     echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
+                    echo "<form>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-36px; margin-bottom:-20px;'>Boarding</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[2] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[3] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>";
-                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[5] </textarea>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[4] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Face Mask</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[6] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Public Transportation</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[7] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[8] </textarea>";
-                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Restaurants</p>";
                     echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[9] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminder</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[10] </textarea>";
+                    echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
+                    echo "<textarea rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[11] </textarea>";
                     }}
-                    echo "</div>";
-                    echo "</div>";
+                    echo "</form>";
                   include "close_db.php"
                 ?>
            </div>
-               
+           <button onclick="location.href = 'update_database.php';" id="button_admin"; class="button button_admin"; style="position:fixed; top:745px; left:850px;">UPDATE</button>
         </div>
-        <button onclick="location.href = 'update_database.php';" id="button_admin"; class="button button_admin"; style="top:735px; left:130px;">UPDATE</button>
+        
       </div>
   </body>
   <?php include "close_db.php" ?>
