@@ -1,16 +1,20 @@
 <?php
     include 'connect.php';
+    //include 'admin_frontpage.php';
 
 
-    $FROM=$_REQUEST["$FROM"];
-    $TO=$_REQUEST["$TO"];
-    $boarding=$_REQUEST["new_boarding_info"];
-    $quarantine=$_REQUEST["new_quarantine_info"];
-    $regulation=$_REQUEST["new_regulation_info"];
-    $vaccination=$_REQUEST["new_vaccination_info"];
-    $facemask=$_REQUEST["new_facemask_info"];
-    $transport=$_REQUEST["new_transport_info"];
-    $business=$_REQUEST["new_business_info"];
+    //$FROM=$_REQUEST["$FROM"];
+    //$TO=$_REQUEST["$TO"];
+    $boarding=$_GET["boarding"];
+    $quarantine=$_GET["quarantine"];
+    $vaccination=$_GET["vaccination"];
+    $facemask=$_GET["face_mask"];
+    $transport=$_GET["transport"];
+    $business=$_GET["business"];
+    $restaurants=$_GET["restaurants"];
+    $sources=$_GET["sources"];
+
+    
 
     $sql="UPDATE regulation SET 
     boarding='$boarding', 
@@ -20,12 +24,14 @@
     transport='$transport',
     business='$business'
     WHERE TO='$TO' AND FROM='$FROM' ";
+    echo  $sql;
     if(!mysqli_query($link,$sql))
     {
         echo "The update process has failed.";
             
     }
-    header("Location: ./admin_frontpage.php");
-    include 'close.php';
+
+    //header("Location: ./admin_frontpage.php");
+    //include 'close.php';
 
 ?>
