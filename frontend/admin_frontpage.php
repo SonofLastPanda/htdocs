@@ -61,10 +61,13 @@ include "close_db.php";
         <div class=boxed_c_l style= "background-color:#fcfaf4; border-style:dotted; left:425px; top: 214px; height: 475px; width:900px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
                <?php
                   include 'connect.php';
-                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");              
+                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder,regulation.ID FROM regulation");              
                   while($row = mysqli_fetch_row($result)){ 
                   if (($row[0]=="$FROM")&&($row[1]=="$TO")){
                     // Listing all info
+                    echo "<input type='hidden' name='id' value='$row[11]'/> ";
+                    echo "<input type='hidden' name='from' value='$FROM'/> ";
+                    echo "<input type='hidden' name='to' value='$TO'/> ";
                     echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
                     echo "<form>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-36px; margin-bottom:-20px;'>Boarding</p>";

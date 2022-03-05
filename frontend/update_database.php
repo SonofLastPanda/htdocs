@@ -3,8 +3,9 @@
     //include 'admin_frontpage.php';
 
 
-    //$FROM=$_REQUEST["$FROM"];
-    //$TO=$_REQUEST["$TO"];
+    $FROM=$_GET["from"];
+    $TO=$_GET["to"];
+    $id=$_GET["id"];
     $boarding=$_GET["boarding"];
     $quarantine=$_GET["quarantine"];
     $vaccination=$_GET["vaccination"];
@@ -12,26 +13,31 @@
     $transport=$_GET["transport"];
     $business=$_GET["business"];
     $restaurants=$_GET["restaurants"];
-    $sources=$_GET["sources"];
+    $reminder=$_GET["reminder"];
+    //$sources=$_GET["sources"];
 
     
-
-    $sql="UPDATE regulation SET 
-    boarding='$boarding', 
-    quarantine='$quarantine',
-    regulation='$regulation',
-    vaccination='$facemask',
-    transport='$transport',
-    business='$business'
-    WHERE TO='$TO' AND FROM='$FROM' ";
-    echo  $sql;
+    //typo in db, therefore qurantine, instead of Quarantine.
+    $sql="UPDATE regulation 
+    SET 
+    regulation.Boarding='$boarding', 
+    regulation.Qurantine='$quarantine', 
+    regulation.Vaccine='$vaccination',
+    regulation.Face_mask='$facemask',
+    regulation.Public_transportation='$transport',
+    regulation.Businesses='$business',
+    regulation.Restaurants='$restaurants',
+    regulation.Reminder='$reminder'
+    
+    WHERE regulation.id='$id'";
+    //echo  $sql;
     if(!mysqli_query($link,$sql))
     {
         echo "The update process has failed.";
             
     }
 
-    //header("Location: ./admin_frontpage.php");
+    header("Location: ./admin_frontpage.php?FROM=$FROM&TO=$TO");
     //include 'close.php';
 
 ?>
