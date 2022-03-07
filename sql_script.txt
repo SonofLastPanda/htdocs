@@ -137,52 +137,58 @@ INSERT INTO REGULATION VALUES
 INSERT INTO REGULATION VALUES
 ('SWE_ESP','Sweden','Spain','Everyone entering Spain from other countries, including international transits, regardless of nationality or age, must complete a Health Control Form (FCS) and obtain their QR code to present at boarding, and at health control points on arrival in Spain. If they are also travelling from an at-risk country, in order to enter Spain they will also need to present 1: An EU Digital COVID Certificate (see information). 2: Or a certificate of vaccination, a certificate of diagnosis or a certificate of recovery.','As of December 27th, 2021, no traveler from abroad is subject to quarantine upon arrival in Spain.',NULL,NULL,'Required in some cases','Operating','Open','Open',NULL);
 
-CREATE TABLE SOURCE(
-	Regulation_ID 	VARCHAR(7) NOT NULL PRIMARY KEY,
-	Source        	VARCHAR(255) NOT NULL
+
+ALTER TABLE `regulation` ADD PRIMARY KEY(`ID`);
+
+CCREATE TABLE SOURCE(
+	Regulation_ID VARCHAR(7) NOT NULL,
+	Source_link	VARCHAR(255) NOT NULL,
+    CONSTRAINT FK_SourceReg FOREIGN KEY (Regulation_ID)
+    REFERENCES regulation(ID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.newdelhiairport.in/pdf/RevisedGuidelinesforInternationalArrivaldated20thJanuary2022-new-21-01-22.pdf');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.newdelhiairport.in/airsuvidha/apho-registration');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.civilaviation.gov.in/sites/default/files/State_wise_quarantine_regulation-converted.pdf');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE','https://polisen.se/en/the-swedish-police/the-coronavirus-and-the-swedish-police/travel-to-and-from-sweden/#exempted');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HKG','https://www.coronavirus.gov.hk/eng/inbound-travel.html');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HKG','https://www.coronavirus.gov.hk/eng/public-transport-faq.html#:~:text=The%20Regulation%20requires%20that%20all,that%20is%20not%20in%20service)');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_TUR','https://www.visasturkey.com/travel-and-entry-restrictions/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_TUR','https://www.visasturkey.com/vaccinations-for-turkey/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_AUT','https://www.austria.info/en/service-and-facts/coronavirus-information/entry-regulations');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_AUT','https://www.austria.info/en/service-and-facts/coronavirus-information#:~:text=The%20Austrian%20Covid%20rules%20from%2019%20February%20to%204%20March&text=FFP2%20masks%20remain%20mandatory%20in,is%20valid%20for%20270%20days.');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_BEL','https://www.info-coronavirus.be/en/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_BGR','https://europa.eu/youreurope/citizens/travel/travel-and-covid/bulgaria/index_en.htm');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HRV','https://mup.gov.hr/uzg-covid/english/286212');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HRV','https://hr.usembassy.gov/covid-19-information/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_CYP','https://www.pio.gov.cy/coronavirus/eng');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_CZE','https://www.mvcr.cz/mvcren/article/coronavirus-information-of-moi.aspx');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_DNK','https://en.coronasmitte.dk/travel-rules/covidtravelrules');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ENT','https://vm.ee/en/information-countries-and-self-isolation-requirements-passengers');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ENT','https://kriis.ee/en/travelling-crossing-state-border/travelling-estonia/coming-estonia');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_FIN','https://valtioneuvosto.fi/en/information-on-coronavirus/current-restrictions/travel-to-and-from-finland#:~:text=Entry%20into%20the%20country%20is,right%20to%20return%20to%20Finland.');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_FRA','https://www.diplomatie.gouv.fr/en/coming-to-france/coming-to-france-your-covid-19-questions-answered/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_FRA','https://www.interieur.gouv.fr/covid-19-international-travel');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_DEU','https://www.auswaertiges-amt.de/en/visa-service/EinreiseUndAufenthalt#:~:text=Due%20to%20the%20COVID%2D19,on%20the%20place%20of%20departure.');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_GRC','https://www.gov.uk/foreign-travel-advice/greece/entry-requirements');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_GRC','https://travel.gov.gr/#/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HUN','https://www.police.hu/en/content/information-on-general-rules-of-border-crossing');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_HUN','https://konzuliszolgalat.kormany.hu/en');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IRL','https://www.citizensinformation.ie/en/travel_and_recreation/travel_to_ireland/travel_to_ireland_during_covid.html');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ITA','https://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=english&id=5412&area=nuovoCoronavirus&menu=vuoto');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_LVA','https://www.mfa.gov.lv/en/information-travellers-latvia-provisions-preventing-spread-covid-19');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_LTU','https://www.govilnius.lt/media-news/important-information-regarding-the-coronavirus');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_LUX','https://covid19.public.lu/en/travellers/visiting-luxembourg.html');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_MLT','https://deputyprimeminister.gov.mt/en/health-promotion/covid-19/Pages/travel.aspx');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_NLD','https://www.government.nl/topics/coronavirus-covid-19/visiting-the-netherlands-from-abroad/self-quarantine');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_NLD','https://www.government.nl/topics/coronavirus-covid-19/visiting-the-netherlands-from-abroad/checklist-entry');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_POL','https://www.gov.pl/web/coronavirus/travel');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_PRT','https://www.visitportugal.com/en/content/covid-19-measures-implemented-portugal');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ROU','https://europa.eu/youreurope/citizens/travel/travel-and-covid/romania/index_en.htm');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVK','https://korona.gov.sk/en/travelling-to-slovakia-and-covid19/');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVN','https://www.gov.si/en/topics/coronavirus-disease-covid-19/border-crossing/#:~:text=Useful%20links-,As%20of%2019%20February%202022%2C%20restrictions%20due%20to%20Covid%2D19,ordered%20to%20quarantine%20at%20home.');
-INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ESP','https://travelsafe.spain.info/en/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_IND','https://www.newdelhiairport.in/pdf/RevisedGuidelinesforInternationalArrivaldated20thJanuary2022-new-21-01-22.pdf');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_IND','https://www.newdelhiairport.in/airsuvidha/apho-registration');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_IND','https://www.civilaviation.gov.in/sites/default/files/State_wise_quarantine_regulation-converted.pdf');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HKG','https://www.coronavirus.gov.hk/eng/inbound-travel.html');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HKG','https://www.coronavirus.gov.hk/eng/public-transport-faq.html#:~:text=The%20Regulation%20requires%20that%20all,that%20is%20not%20in%20service)');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_TUR','https://www.visasturkey.com/travel-and-entry-restrictions/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_TUR','https://www.visasturkey.com/vaccinations-for-turkey/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_AUT','https://www.austria.info/en/service-and-facts/coronavirus-information/entry-regulations');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_AUT','https://www.austria.info/en/service-and-facts/coronavirus-information#:~:text=The%20Austrian%20Covid%20rules%20from%2019%20February%20to%204%20March&text=FFP2%20masks%20remain%20mandatory%20in,is%20valid%20for%20270%20days.');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_BEL','https://www.info-coronavirus.be/en/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_BGR','https://europa.eu/youreurope/citizens/travel/travel-and-covid/bulgaria/index_en.htm');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HRV','https://mup.gov.hr/uzg-covid/english/286212');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HRV','https://hr.usembassy.gov/covid-19-information/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_CYP','https://www.pio.gov.cy/coronavirus/eng');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_CZE','https://www.mvcr.cz/mvcren/article/coronavirus-information-of-moi.aspx');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_DNK','https://en.coronasmitte.dk/travel-rules/covidtravelrules');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_ENT','https://vm.ee/en/information-countries-and-self-isolation-requirements-passengers');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_ENT','https://kriis.ee/en/travelling-crossing-state-border/travelling-estonia/coming-estonia');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_FIN','https://valtioneuvosto.fi/en/information-on-coronavirus/current-restrictions/travel-to-and-from-finland#:~:text=Entry%20into%20the%20country%20is,right%20to%20return%20to%20Finland.');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_FRA','https://www.diplomatie.gouv.fr/en/coming-to-france/coming-to-france-your-covid-19-questions-answered/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_FRA','https://www.interieur.gouv.fr/covid-19-international-travel');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_DEU','https://www.auswaertiges-amt.de/en/visa-service/EinreiseUndAufenthalt#:~:text=Due%20to%20the%20COVID%2D19,on%20the%20place%20of%20departure.');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_GRC','https://www.gov.uk/foreign-travel-advice/greece/entry-requirements');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_GRC','https://travel.gov.gr/#/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HUN','https://www.police.hu/en/content/information-on-general-rules-of-border-crossing');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_HUN','https://konzuliszolgalat.kormany.hu/en');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_IRL','https://www.citizensinformation.ie/en/travel_and_recreation/travel_to_ireland/travel_to_ireland_during_covid.html');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_ITA','https://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=english&id=5412&area=nuovoCoronavirus&menu=vuoto');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_LVA','https://www.mfa.gov.lv/en/information-travellers-latvia-provisions-preventing-spread-covid-19');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_LTU','https://www.govilnius.lt/media-news/important-information-regarding-the-coronavirus');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_LUX','https://covid19.public.lu/en/travellers/visiting-luxembourg.html');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_MLT','https://deputyprimeminister.gov.mt/en/health-promotion/covid-19/Pages/travel.aspx');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_NLD','https://www.government.nl/topics/coronavirus-covid-19/visiting-the-netherlands-from-abroad/self-quarantine');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_NLD','https://www.government.nl/topics/coronavirus-covid-19/visiting-the-netherlands-from-abroad/checklist-entry');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_POL','https://www.gov.pl/web/coronavirus/travel');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_PRT','https://www.visitportugal.com/en/content/covid-19-measures-implemented-portugal');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_ROU','https://europa.eu/youreurope/citizens/travel/travel-and-covid/romania/index_en.htm');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_SVK','https://korona.gov.sk/en/travelling-to-slovakia-and-covid19/');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_SVN','https://www.gov.si/en/topics/coronavirus-disease-covid-19/border-crossing/#:~:text=Useful%20links-,As%20of%2019%20February%202022%2C%20restrictions%20due%20to%20Covid%2D19,ordered%20to%20quarantine%20at%20home.');
+INSERT INTO SOURCE(Regulation_ID,Source_link) VALUES ('SWE_ESP','https://travelsafe.spain.info/en/');
 
 INSERT INTO COUNTRY (country_name) VALUES ('India');
 INSERT INTO COUNTRY (country_name) VALUES ('Turkey');
