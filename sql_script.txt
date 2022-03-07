@@ -137,14 +137,11 @@ INSERT INTO REGULATION VALUES
 INSERT INTO REGULATION VALUES
 ('SWE_ESP','Sweden','Spain','Everyone entering Spain from other countries, including international transits, regardless of nationality or age, must complete a Health Control Form (FCS) and obtain their QR code to present at boarding, and at health control points on arrival in Spain. If they are also travelling from an at-risk country, in order to enter Spain they will also need to present 1: An EU Digital COVID Certificate (see information). 2: Or a certificate of vaccination, a certificate of diagnosis or a certificate of recovery.','As of December 27th, 2021, no traveler from abroad is subject to quarantine upon arrival in Spain.',NULL,NULL,'Required in some cases','Operating','Open','Open',NULL);
 
-<<<<<<< Updated upstream
 CREATE TABLE SOURCE(
 	Regulation_ID 	VARCHAR(7) NOT NULL PRIMARY KEY,
 	Source        	VARCHAR(255) NOT NULL
 );
 
-=======
->>>>>>> Stashed changes
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.newdelhiairport.in/pdf/RevisedGuidelinesforInternationalArrivaldated20thJanuary2022-new-21-01-22.pdf');
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.newdelhiairport.in/airsuvidha/apho-registration');
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_IND','https://www.civilaviation.gov.in/sites/default/files/State_wise_quarantine_regulation-converted.pdf');
@@ -187,10 +184,6 @@ INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVK','https://korona.gov.s
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVN','https://www.gov.si/en/topics/coronavirus-disease-covid-19/border-crossing/#:~:text=Useful%20links-,As%20of%2019%20February%202022%2C%20restrictions%20due%20to%20Covid%2D19,ordered%20to%20quarantine%20at%20home.');
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ESP','https://travelsafe.spain.info/en/');
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ALTER TABLE users ADD username varchar(255) NOT NULL;
 
 DROP TABLE admin;
