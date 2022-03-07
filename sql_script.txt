@@ -184,6 +184,36 @@ INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVK','https://korona.gov.s
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_SVN','https://www.gov.si/en/topics/coronavirus-disease-covid-19/border-crossing/#:~:text=Useful%20links-,As%20of%2019%20February%202022%2C%20restrictions%20due%20to%20Covid%2D19,ordered%20to%20quarantine%20at%20home.');
 INSERT INTO SOURCE(Regulation_ID,Source) VALUES ('SWE_ESP','https://travelsafe.spain.info/en/');
 
+INSERT INTO COUNTRY (country_name) VALUES ('India');
+INSERT INTO COUNTRY (country_name) VALUES ('Turkey');
+INSERT INTO COUNTRY (country_name) VALUES ('Hong Kong');
+INSERT INTO COUNTRY (country_name) VALUES ('Austria');
+INSERT INTO COUNTRY (country_name) VALUES ('Belgium');
+INSERT INTO COUNTRY (country_name) VALUES ('Bulgaria');
+INSERT INTO COUNTRY (country_name) VALUES ('Croatia');
+INSERT INTO COUNTRY (country_name) VALUES ('Cyprus');
+INSERT INTO COUNTRY (country_name) VALUES ('Czech Republic');
+INSERT INTO COUNTRY (country_name) VALUES ('Denmark');
+INSERT INTO COUNTRY (country_name) VALUES ('Estonia');
+INSERT INTO COUNTRY (country_name) VALUES ('Finland');
+INSERT INTO COUNTRY (country_name) VALUES ('France');
+INSERT INTO COUNTRY (country_name) VALUES ('Germany');
+INSERT INTO COUNTRY (country_name) VALUES ('Greece');
+INSERT INTO COUNTRY (country_name) VALUES ('Hungary');
+INSERT INTO COUNTRY (country_name) VALUES ('Ireland');
+INSERT INTO COUNTRY (country_name) VALUES ('Italy');
+INSERT INTO COUNTRY (country_name) VALUES ('Latvia');
+INSERT INTO COUNTRY (country_name) VALUES ('Lithuania');
+INSERT INTO COUNTRY (country_name) VALUES ('Luxembourg');
+INSERT INTO COUNTRY (country_name) VALUES ('Malta');
+INSERT INTO COUNTRY (country_name) VALUES ('Netherlands');
+INSERT INTO COUNTRY (country_name) VALUES ('Poland');
+INSERT INTO COUNTRY (country_name) VALUES ('Portugal');
+INSERT INTO COUNTRY (country_name) VALUES ('Romania');
+INSERT INTO COUNTRY (country_name) VALUES ('Slovakia');
+INSERT INTO COUNTRY (country_name) VALUES ('Slovenia');
+INSERT INTO COUNTRY (country_name) VALUES ('Spain');
+
 ALTER TABLE users ADD username varchar(255) NOT NULL;
 
 DROP TABLE admin;
