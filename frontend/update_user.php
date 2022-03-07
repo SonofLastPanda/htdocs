@@ -25,6 +25,7 @@
     $new_password=$_POST["new_userpassword"];
     $new_confirmpassword=$_POST["new_confirmpassword"];
     $new_nationality=$_POST["new_nationality"];
+    $remove_bookmark=$_POST["TO"];
 
     #Check if different passwords were entered
     $password_error = "";
@@ -38,20 +39,32 @@
     window.location='user_info.php';
     </script>";
 
-
     } else {
     header("location: user_frontpage.php");
     #Transaction to update database
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
 
+    if ($remove_bookmark!="Bookmark") {
+        mysqli_query($link, "DELETE FROM bookmark WHERE bookmark.user_id IN
+        (SELECT users.user_id
+        FROM users
+        WHERE users.username='$old_username')
+        AND bookmark.country_id IN
+        (SELECT country.country_id
+        FROM country
+        WHERE country.country_name='$remove_bookmark')") ? null: $queries_ok=FALSE;
+    }
+
     $en_email=encrypt($new_email);
     $en_password=encrypt($new_password);
+    
     mysqli_query($link, "UPDATE users SET password='$en_password', email='$en_email', citizenship='$new_nationality', username='$new_username' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
 
     //Commit Transactionn
     if ($queries_ok) {
         mysqli_commit($link);
+        $_SESSION['username']=$new_username;
     } else {
         echo "Commit transaction failed";
         mysqli_rollback($link);

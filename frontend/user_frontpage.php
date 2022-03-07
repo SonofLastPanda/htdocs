@@ -33,7 +33,7 @@
       }
 
         #Displaying favorite countries
-        $fav_countries = mysqli_query($link, "SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$username'");
+        $fav_countries = mysqli_query($link, "SELECT DISTINCT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$username'");
         
         while($row = mysqli_fetch_row($fav_countries)){
             echo "<img src='heart.png' alt='face_mask_icon' width='20' height='15' style='position:relative; left:-80px;'>";
