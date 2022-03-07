@@ -32,12 +32,21 @@
     $password = $_REQUEST["userpassword"];
     $citizenship=$_REQUEST["nationality"];
  
+    $error_string = "";
+    #Check if username already occupied
+    $sql1="SELECT * FROM users WHERE users.username='$username'";
+    $sql2="SELECT * FROM admin WHERE admin.adminname='$username'";
+    if (mysqli_num_rows(mysqli_query($link, $sql1))>0 || mysqli_num_rows(mysqli_query($link, $sql2))>0) {
+        $error_string='Username already taken. Try another username!';
+    }
 
+    #Error message if username already used
+    if ($error_string) {
+    echo "<script type='text/javascript'>alert('$error_string');
+    window.location='user_reg.php';
+    </script>";
 
-
-
-    
-
+    } else {
 
     // username and user id to be encrypted
     //$username=encrypt($username);
@@ -76,7 +85,7 @@
 }
     header("location: user_frontpage.php");
     // Close connection
-
+    }
     include 'close.php';
 
 ?>

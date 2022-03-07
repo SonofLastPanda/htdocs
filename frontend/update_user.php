@@ -27,15 +27,25 @@
     $new_nationality=$_POST["new_nationality"];
     $remove_bookmark=$_POST["TO"];
 
-    #Check if different passwords were entered
-    $password_error = "";
-    if($new_password != $new_confirmpassword) {
-        $password_error='Failed updating password. Passwords does not match.';
+    $error_string = "";
+    #Check if username already occupied
+    if ($new_username!=$old_username) {
+        $sql1="SELECT * FROM users WHERE users.username='$new_username'";
+        $sql2="SELECT * FROM admin WHERE admin.adminname='$new_username'";
+        #print mysqli_query($link, $sql1);
+        if (mysqli_num_rows(mysqli_query($link, $sql1))>0 || mysqli_num_rows(mysqli_query($link, $sql2))>0) {
+            $error_string='Username already taken. Try another username!';
+        }
     }
 
-    #Error message if passwords doesn't match
-    if ($password_error) {
-    echo "<script type='text/javascript'>alert('$password_error');
+    #Check if different passwords were entered
+    if ($new_password != $new_confirmpassword) {
+        $error_string='Failed updating password. Passwords does not match.';
+    }
+
+    #Error message if passwords doesn't match or username already used
+    if ($error_string) {
+    echo "<script type='text/javascript'>alert('$error_string');
     window.location='user_info.php';
     </script>";
 
