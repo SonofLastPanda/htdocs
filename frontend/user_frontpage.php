@@ -12,6 +12,13 @@
   <?php
       session_start();
       include 'connect.php';
+
+      #To prevent unlogged in users to enter this page
+      if (!isset($_SESSION['username'])) {
+      header("location: login.php");
+      die();
+      }
+
       $username = $_SESSION['username'];
   ?>
   <div class="container">

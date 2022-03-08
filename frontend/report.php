@@ -3,6 +3,14 @@
 include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
+
+session_start();
+#To prevent unlogged in users to enter this page
+if (!isset($_SESSION['username'])) {
+  header("location: login.php");
+  die();
+}
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <?php
 include 'connect.php'; //Including database connection
+
+session_start();
+#To prevent unlogged in users to enter this page
+if (!isset($_SESSION['username'])) {
+  header("location: login.php");
+  die();
+}
+
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
 $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Vaccine, regulation.Regulation, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder, regulation.Sources FROM regulation");

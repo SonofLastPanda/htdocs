@@ -8,6 +8,12 @@ define("key", "batgirl_to_the_rescue"); //change the encryption key?? The web si
 include 'connect.php';
 session_start();
 
+#To prevent unlogged in users to enter this page
+if (!isset($_SESSION['username'])) {
+  header("location: login.php");
+  die();
+}
+
 // decrypt data
 function decrypt($data) {
   $key = key;

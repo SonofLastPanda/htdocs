@@ -7,6 +7,12 @@
     include 'connect.php';
     session_start();
 
+    #To prevent unlogged in users to enter this page
+    if (!isset($_SESSION['username'])) {
+    header("location: login.php");
+    die();
+    }
+
     //encrypt data
     function encrypt($data) {
     $key = key;
@@ -18,7 +24,7 @@
     $ciphertext = base64_encode($iv . $hmac . $ciphertext_raw);
     return $ciphertext;
     }
-   
+
     $old_username=$_SESSION["username"];
     $new_username=$_POST["new_username"];
     $new_email=$_POST["new_useremail"];
@@ -69,7 +75,11 @@
     $en_email=encrypt($new_email);
     $en_password=encrypt($new_password);
     
-    mysqli_query($link, "UPDATE users SET password='$en_password', email='$en_email', citizenship='$new_nationality', username='$new_username' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
+    if (strlen($new_nationality)>0) {
+        mysqli_query($link, "UPDATE users SET citizenship='$new_nationality' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
+    }
+
+    mysqli_query($link, "UPDATE users SET password='$en_password', email='$en_email', username='$new_username' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
 
     //Commit Transactionn
     if ($queries_ok) {

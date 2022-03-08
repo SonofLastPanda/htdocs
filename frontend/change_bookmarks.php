@@ -5,6 +5,12 @@ session_start();
 $new_to=$_GET["TO"];
 $username=$_SESSION['username'];
 
+#To prevent unlogged in users to enter this page
+if (!isset($_SESSION['username'])) {
+    header("location: login.php");
+    die();
+  }
+
 #Transaction to update database
 mysqli_autocommit($link, FALSE);
 $queries_ok=TRUE;
