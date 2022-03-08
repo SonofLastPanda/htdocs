@@ -9,7 +9,7 @@
       echo '<h1><img src="logo1.2.png" alt="BatGirl logo" width="50" height="50" style= "margin-bottom: -10px; margin-left: 15px; margin-right: 0px;">CoTRACK-19</button>
       <form method="get" action="logout.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>LOG OUT</form>
       <form method="get" action="user_info.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>USER INFO</form>
-      <form method="get" action="user_frontpage.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>User Page</form></h1>';
+      <form method="get" action="user_frontpage.php"><button type="submit" id="myButton" class="button button_header" style="margin-right:7px; top:-53px;";>USER PAGE</form></h1>';
     } else {
       echo '<h1><img src="logo1.2.png" alt="BatGirl logo" width="50" height="50" style= "margin-bottom: -10px; margin-left: 15px; margin-right: 0px;">CoTRACK-19<button type="submit" id="loginButton" class="button button_header"; form="login_form" style="margin-right:7px;">LOGIN<form method="get" id="login_form" action="login.php"></form></button><button type="submit" id="registerButton" form="reg_form" class="button button_header" style="margin-right:3px;" >REGISTER USER<form method="get" id="reg_form" action="user_reg.php"></form></button></h1>';
     }
