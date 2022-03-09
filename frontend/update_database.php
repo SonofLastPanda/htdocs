@@ -84,9 +84,9 @@
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     $mail->setFrom('cotrack19@outlook.com', 'CoTRACK19');    
-
+    
     $mail->addAttachment('./logo1.2.png');    //Optional name
-        
+    
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Changes in Your Bookmarked Destinations in CoTRACK';

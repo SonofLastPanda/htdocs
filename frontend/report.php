@@ -48,17 +48,17 @@ if (!isset($_SESSION['username'])) {
             </div>
         </form>
         <div class="scrollbar_country" id="style">
+        <form action='report_database.php' >
                   <div class="scroll_text_country" id="style" style= "margin-left:0px; margin-bottom:10px; height:350px; margin-top:10px;">
-                  <form>
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px; margin-top:-20px;'>Boarding</p>
                     <textarea id="new_boarding_info" rows = "5" cols = "48" name = "new_boarding_info">
                     </textarea><br>
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Quarantine</p>
                     <textarea id="new_quarantine_info" rows = "5" cols = "48" name = "new_quarantine_info">
                     </textarea><br>
-                    <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulations</p>
+                    <!--p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Regulations</p>
                     <textarea id="new_regulation_info" rows = "5" cols = "48" name = "new_regulation_info">
-                    </textarea><br>
+                    </textarea><br-->
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Vaccination</p>
                     <textarea id="new_vaccination_info" rows = "5" cols = "48" name = "new_vaccination_info">
                     </textarea><br>
@@ -70,13 +70,14 @@ if (!isset($_SESSION['username'])) {
                     </textarea><br>
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Businesses</p>
                     <textarea id="new_businesses_info" rows = "5" cols = "48" name = "new_businesses_info">
-                    </textarea><br></form>
+                    </textarea><br>
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>
                     <textarea id="new_businesses_info" rows = "5" cols = "48" name = "new_sources_info">
-                    </textarea><br></form>                   
+                    </textarea><br>                   
             </div>
         </div>
-        <button onclick="location.href = 'report_database.php';" id="button_register"; class="button button_register"; style="top:380px; left:75px;">SEND REPORT</button>
+        <button id="button_register"; class="button button_register"; style="top:380px; left:75px;">SEND REPORT</button>
+          </form>
       </div>
   </body>
   <?php include "close.php" ?>
