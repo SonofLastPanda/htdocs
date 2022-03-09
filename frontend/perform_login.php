@@ -47,6 +47,8 @@ if (mysqli_num_rows($result) == 0){ #it's not a user
   }
 }
 
+$_SESSION['admin']=$admin;
+
 #Error message when wrong or missing password/username are entered
 $occured_error = "";
 if(! $uname || ! $psw) { #check if username and password were entered

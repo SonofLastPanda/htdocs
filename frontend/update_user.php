@@ -8,7 +8,7 @@
     session_start();
 
     #To prevent unlogged in users to enter this page
-    if (!isset($_SESSION['username'])) {
+    if ((!isset($_SESSION['username'])) || ($_SESSION['admin']==TRUE)) {
     header("location: login.php");
     die();
     }
@@ -55,7 +55,7 @@
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
 
-    if ($remove_bookmark!="Bookmark") {
+    if ($remove_bookmark!="-") {
         mysqli_query($link, "DELETE FROM bookmark WHERE bookmark.user_id IN
         (SELECT users.user_id
         FROM users

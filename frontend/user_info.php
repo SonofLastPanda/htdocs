@@ -9,7 +9,7 @@ include 'connect.php';
 session_start();
 
 #To prevent unlogged in users to enter this page
-if (!isset($_SESSION['username'])) {
+if ((!isset($_SESSION['username'])) || ($_SESSION['admin']==TRUE)) {
   header("location: login.php");
   die();
 }
@@ -80,10 +80,10 @@ $result=mysqli_query($link, "SELECT users.email, users.password FROM users WHERE
       <input type="vaccine_type" placeholder="Brand of Vaccine" name="vaccine_type" required><br><br> -->
 
       <label><b>Remove favorited destination:</b></label> <select name="TO"> <!--Drop down list -->
-        <option value="value" selected>Bookmark</option>
+        <option value="value" selected>-</option>
         <?php 
           include "connect.php"; //Including database connection
-          $result2 = mysqli_query($link,"SELECT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$old_username'"); 
+          $result2 = mysqli_query($link,"SELECT DISTINCT country.country_name FROM country JOIN bookmark ON country.country_id = bookmark.country_id JOIN users ON users.user_id = bookmark.user_id WHERE users.username = '$old_username'"); 
           while($row2 = mysqli_fetch_assoc($result2)) { 
           // $catid = $row["TO"];
           $catname2 = $row2["country_name"]; 
