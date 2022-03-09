@@ -79,7 +79,7 @@ if (!isset($_SESSION['username'])) {
         <button onclick="location.href = 'report_database.php';" id="button_register"; class="button button_register"; style="top:380px; left:75px;">SEND REPORT</button>
       </div>
   </body>
-  <?php include "close_db.php" ?>
+  <?php include "close.php" ?>
 
   <style>
   .boxed_report{

@@ -1,3 +1,5 @@
+<!-- This script removes and add bookmarked destinations -->
+
 <?php
 include 'connect.php';
 session_start();

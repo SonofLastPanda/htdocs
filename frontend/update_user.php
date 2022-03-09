@@ -34,22 +34,16 @@
     $remove_bookmark=$_POST["TO"];
 
     $error_string = "";
-    #Check if username already occupied
+#    #Check if username already occupied
     if ($new_username!=$old_username) {
         $sql1="SELECT * FROM users WHERE users.username='$new_username'";
         $sql2="SELECT * FROM admin WHERE admin.adminname='$new_username'";
-        #print mysqli_query($link, $sql1);
         if (mysqli_num_rows(mysqli_query($link, $sql1))>0 || mysqli_num_rows(mysqli_query($link, $sql2))>0) {
             $error_string='Username already taken. Try another username!';
         }
     }
 
-    #Check if different passwords were entered
-    if ($new_password != $new_confirmpassword) {
-        $error_string='Failed updating password. Passwords does not match.';
-    }
-
-    #Error message if passwords doesn't match or username already used
+    #Error message if username already used
     if ($error_string) {
     echo "<script type='text/javascript'>alert('$error_string');
     window.location='user_info.php';

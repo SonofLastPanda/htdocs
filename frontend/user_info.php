@@ -64,9 +64,9 @@ $result=mysqli_query($link, "SELECT users.email, users.password FROM users WHERE
       <label><b>Email: </b></label>
       <input type="text" placeholder="<?php echo decrypt($row[0]);?>" name="new_useremail" value="<?php echo decrypt($row[0]);?>"><br><br>
       <label><b>Password:</b></label>
-      <input type="password" placeholder="Enter New Password" name="new_userpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
+      <input type="password" placeholder="Enter New Password" name="new_userpassword" id="new_userpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
       <label><b>Confirm Password:</b></label>
-      <input type="password" placeholder="Confirm  Password" name="new_confirmpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
+      <input type="password" placeholder="Confirm  Password" name="new_confirmpassword" id="new_confirmpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
       <label for="Nationality"><b>Nationality:</b></label>
       <select id="nationality" name="nationality">
       <option value="Sweden">Sweden</option>
@@ -94,9 +94,21 @@ $result=mysqli_query($link, "SELECT users.email, users.password FROM users WHERE
       
       <div>
         <br><br>
-      <button type="submit" form="submit" value="Submit" onclick="return Validate()" class="button button_register" style= "margin-left:43px;">UPDATE</button> 
+      <button type="submit" form="submit" value="Submit" class="button button_register" onclick="return password_validate()"; style= "margin-left:43px;">UPDATE</button> 
     </div></div>
       </div>
       </form>
 </body>
+
+<script type="text/javascript">
+    function password_validate() {
+        var password = document.getElementById("new_userpassword").value;
+        var confirmPassword = document.getElementById("new_confirmpassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 </html>

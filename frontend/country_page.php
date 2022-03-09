@@ -3,7 +3,7 @@ include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
 $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
-include "close_db.php"
+include "close.php"
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,7 +116,7 @@ echo "There is currently no information regarding this field for this travel rou
             }}
 echo "</div>";
 echo "</div>";
-include "close_db.php"
+include "close.php"
 ?>
           }}     
         ?>

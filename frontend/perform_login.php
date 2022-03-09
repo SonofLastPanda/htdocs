@@ -47,6 +47,7 @@ if (mysqli_num_rows($result) == 0){ #it's not a user
   }
 }
 
+#Error message when wrong or missing password/username are entered
 $occured_error = "";
 if(! $uname || ! $psw) { #check if username and password were entered
   #error, some fields are empty
@@ -66,7 +67,7 @@ while($row = mysqli_fetch_row($result)){
 }
 }
 
-#Error message when wrong or missing password/username are entered
+#Redirection to correct homepage or display error
 if ((! $occured_error) && ($admin == FALSE)) {
   header("location: user_frontpage.php");
 } elseif ((! $occured_error) && ($admin == TRUE)) {
