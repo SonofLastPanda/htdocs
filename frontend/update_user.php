@@ -8,7 +8,7 @@
     session_start();
 
     #To prevent unlogged in users to enter this page
-    if (!isset($_SESSION['username'])) {
+    if ((!isset($_SESSION['username'])) || ($_SESSION['admin']==TRUE)) {
     header("location: login.php");
     die();
     }

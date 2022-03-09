@@ -55,6 +55,7 @@
 
     session_start();
     $_SESSION['username']=$username;
+    $_SESSION['admin']=FALSE;
 
     //SQL Queries to insert data
 
