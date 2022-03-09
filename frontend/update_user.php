@@ -7,6 +7,12 @@
     include 'connect.php';
     session_start();
 
+    #To prevent unlogged in users to enter this page
+    if (!isset($_SESSION['username'])) {
+    header("location: login.php");
+    die();
+    }
+
     //encrypt data
     function encrypt($data) {
     $key = key;
@@ -18,26 +24,30 @@
     $ciphertext = base64_encode($iv . $hmac . $ciphertext_raw);
     return $ciphertext;
     }
-   
+
     $old_username=$_SESSION["username"];
     $new_username=$_POST["new_username"];
     $new_email=$_POST["new_useremail"];
     $new_password=$_POST["new_userpassword"];
     $new_confirmpassword=$_POST["new_confirmpassword"];
     $new_nationality=$_POST["new_nationality"];
+    $remove_bookmark=$_POST["TO"];
 
-    #Check if different passwords were entered
-    $password_error = "";
-    if($new_password != $new_confirmpassword) {
-        $password_error='Failed updating password. Passwords does not match.';
+    $error_string = "";
+#    #Check if username already occupied
+    if ($new_username!=$old_username) {
+        $sql1="SELECT * FROM users WHERE users.username='$new_username'";
+        $sql2="SELECT * FROM admin WHERE admin.adminname='$new_username'";
+        if (mysqli_num_rows(mysqli_query($link, $sql1))>0 || mysqli_num_rows(mysqli_query($link, $sql2))>0) {
+            $error_string='Username already taken. Try another username!';
+        }
     }
 
-    #Error message if passwords doesn't match
-    if ($password_error) {
-    echo "<script type='text/javascript'>alert('$password_error');
+    #Error message if username already used
+    if ($error_string) {
+    echo "<script type='text/javascript'>alert('$error_string');
     window.location='user_info.php';
     </script>";
-
 
     } else {
     header("location: user_frontpage.php");
@@ -45,13 +55,30 @@
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
 
+    if ($remove_bookmark!="Bookmark") {
+        mysqli_query($link, "DELETE FROM bookmark WHERE bookmark.user_id IN
+        (SELECT users.user_id
+        FROM users
+        WHERE users.username='$old_username')
+        AND bookmark.country_id IN
+        (SELECT country.country_id
+        FROM country
+        WHERE country.country_name='$remove_bookmark')") ? null: $queries_ok=FALSE;
+    }
+
     $en_email=encrypt($new_email);
     $en_password=encrypt($new_password);
-    mysqli_query($link, "UPDATE users SET password='$en_password', email='$en_email', citizenship='$new_nationality', username='$new_username' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
+    
+    if (strlen($new_nationality)>0) {
+        mysqli_query($link, "UPDATE users SET citizenship='$new_nationality' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
+    }
+
+    mysqli_query($link, "UPDATE users SET password='$en_password', email='$en_email', username='$new_username' WHERE username='$old_username'") ? null: $queries_ok=FALSE;
 
     //Commit Transactionn
     if ($queries_ok) {
         mysqli_commit($link);
+        $_SESSION['username']=$new_username;
     } else {
         echo "Commit transaction failed";
         mysqli_rollback($link);

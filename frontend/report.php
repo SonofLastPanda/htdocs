@@ -3,6 +3,14 @@
 include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
+
+session_start();
+#To prevent unlogged in users to enter this page
+if (!isset($_SESSION['username'])) {
+  header("location: login.php");
+  die();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,7 +79,7 @@ $TO = $_GET["TO"];
         <button onclick="location.href = 'report_database.php';" id="button_register"; class="button button_register"; style="top:380px; left:75px;">SEND REPORT</button>
       </div>
   </body>
-  <?php include "close_db.php" ?>
+  <?php include "close.php" ?>
 
   <style>
   .boxed_report{

@@ -27,8 +27,6 @@ CREATE TABLE Bookmark(
     FOREIGN KEY (country_id) REFERENCES Country(country_id) 
     ON UPDATE CASCADE
 	ON DELETE CASCADE);
-    
-insert into users values ('100', 'a@a', 'pwd123', 'earth');
 
 CREATE TABLE IF NOT EXISTS regulation (
 `ID` VARCHAR(255) NOT NULL,
@@ -43,11 +41,6 @@ CREATE TABLE IF NOT EXISTS regulation (
 `Businesses` VARCHAR(255) NULL,
 `Restaurants` VARCHAR(255) NULL,
 `Reminder` LONGTEXT NULL
-);
-
-CREATE TABLE SOURCE(
-Regulation_ID VARCHAR(7) NOT NULL PRIMARY KEY,
-Source        VARCHAR(255) NOT NULL
 );
 
 INSERT INTO REGULATION VALUES
