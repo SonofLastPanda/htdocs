@@ -90,11 +90,7 @@
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Changes in Your Bookmarked Destinations in CoTRACK';
-    $mail->Body    = "Hello!
-    There are new changes in your bookmarked destination FROM: $FROM TO: $TO. 
-    Visit CoTRACK to check them out before your travels.
-    Safe Journeys!
-    CoTRACK19 TEAM";
+    
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     foreach($users as $row)
@@ -116,13 +112,17 @@
     //$mail->addBCC($email);
     //Attachments
     //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    $mail->Body    = "Hello $username! \n
+    There are new changes in your bookmarked destination FROM: $FROM TO: $TO. \n
+    Visit CoTRACK to check them out before your travels.\n \n
+    Safe Journeys!\n
+    CoTRACK19 TEAM";
     
-    
-    
-    //echo 'Message has been sent';  
-    //$mail->clearAddresses();
-    }
     $mail->send();
+    //echo 'Message has been sent';  
+    $mail->clearAddresses();
+    }
+    
     header("Location: ./admin_frontpage.php?FROM=$FROM&TO=$TO");
     
     include 'close.php';
