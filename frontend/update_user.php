@@ -55,7 +55,7 @@
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
 
-    if ($remove_bookmark!="Bookmark") {
+    if ($remove_bookmark!="-") {
         mysqli_query($link, "DELETE FROM bookmark WHERE bookmark.user_id IN
         (SELECT users.user_id
         FROM users
