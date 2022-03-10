@@ -66,7 +66,7 @@
     }
 
     $en_email=encrypt($new_email);
-    $en_password=encrypt($new_password);
+    $en_password=password_hash($new_password,PASSWORD_ARGON2I);
     
     if (strlen($new_nationality)>0) {
         mysqli_query($link, "UPDATE users SET citizenship='$new_nationality' WHERE username='$old_username'") ? null: $queries_ok=FALSE;

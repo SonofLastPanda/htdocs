@@ -35,7 +35,7 @@
     $queries_ok=TRUE;
 
     $en_email=encrypt($new_email);
-    $en_password=encrypt($new_password);
+    $en_password=password_hash($new_password,PASSWORD_ARGON2I);
 
     mysqli_query($link, "UPDATE admin SET password='$en_password', email='$en_email' WHERE adminname='$username'") ? null: $queries_ok=FALSE;
 
