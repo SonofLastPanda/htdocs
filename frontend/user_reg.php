@@ -55,6 +55,15 @@
 </div>
 </div>
 <script type="text/javascript">
+  function Validate() {
+        var password = document.getElementById("userpassword").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
      function ValidateEmail()
 {
 var inputText=document.getElementById("useremail").value;

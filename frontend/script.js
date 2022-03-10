@@ -7,11 +7,14 @@ ctx.font = "28pt Red Hat Display";
 
 // #40798C
 
-let userText = document.querySelector("#textBox");
+let userText = document.querySelector("#textBox").value;
+console.log(userText);
 let submitButton = document.querySelector("#submitButton");
+console.log(submitButton);
 let output = document.querySelector("#output");
+console.log(output);
 //let refreshButton = document.querySelector("#refreshButton");
-
+/*
 // alphaNums contains the characters with which you want to create the CAPTCHA
 let alphaNums = [
   "A",
@@ -85,7 +88,7 @@ for (let i = 1; i <= 7; i++) {
 }
 var c = emptyArr.join("");
 ctx.fillText(emptyArr.join(""), captchaText.width / 4, captchaText.height / 2);
-
+*/
 // This event listener is stimulated whenever the user press the "Enter" button
 // "Correct!" or "Incorrect, please try again" message is
 // displayed after validating the input text with CAPTCHA
@@ -104,14 +107,17 @@ userText.addEventListener("keyup", function (e) {
 // This event listener is stimulated whenever the user clicks the "Submit" button
 // "Correct!" or "Incorrect, please try again" message is
 // displayed after validating the input text with CAPTCHA
-submitButton.addEventListener("click", function () {
+submitButton.addEventListener("click", function (e) {
   if (userText.value === c) {
     output.classList.add("correctCaptcha");
     output.innerHTML = "Correct!";
     output.font = "Red Hat Display";
+    return true;
   } else {
     output.classList.add("incorrectCaptcha");
     output.innerHTML = "Incorrect, please try again";
+    alert("Wrong captcha;");
+    return false;
   }
 });
 // This event listener is stimulated whenever the user press the "Refresh" button
