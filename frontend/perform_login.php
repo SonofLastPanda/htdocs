@@ -59,8 +59,8 @@ if(! $uname || ! $psw) { #check if username and password were entered
     $occured_error='Failed login. Username or password is wrong.';
 } else{ #check if password is correct
 while($row = mysqli_fetch_row($result)){
-    $stored_psw=decrypt($row[0]);
-    if ($psw == $stored_psw) {
+    $stored_psw=$row[0];
+    if (password_verify($psw,$stored_psw)==true) {
     #password was correct
   } else {
     #error, wrong password
