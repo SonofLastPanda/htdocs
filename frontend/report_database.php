@@ -46,53 +46,57 @@
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'There Are New Reports in COTRACK!';
 
-    /*
+
+    $FROM=$_REQUEST["FROM"];
+    $TO=$_REQUEST["TO"];
+
+    //echo $TO;
+    
     $body_script="
-    There are new reports for invalid information for the destination: \n
-    FROM: $FROM TO: $TO. \n";
+    There are new reports for invalid information for the destination: \r\n
+    FROM: $FROM TO: $TO. \r\n";
 
     $boarding=$_REQUEST["new_boarding_info"];
-    $quarantine=$_GET["new_quarantine_info"];
+    $quarantine=$_REQUEST["new_quarantine_info"];
     //$regulation=$_GET["new_regulation_info"];
-    $vaccination=$_GET["new_vaccination_info"];
-    $facemask=$_GET["new_facemask_info"];
-    $transport=$_GET["new_publictransport_info"];
-    $business=$_GET["new_business_info"];
-    $sources=$_GET["new_sources_info"];
+    $vaccination=$_REQUEST["new_vaccination_info"];
+    $facemask=$_REQUEST["new_facemask_info"];
+    $transport=$_REQUEST["new_publictransport_info"];
+    $business=$_REQUEST["new_businesses_info"];
+    $sources=$_REQUEST["new_sources_info"];
 
     if(!empty($boarding)){
-        $body_script=$body_script."Boarding:" .$boarding." \n";
+        $body_script=$body_script."Boarding:" .$boarding." \r\n";
     }
     if(!empty($quarantine)){
-        $body_script=$body_script."Quarantine: ".$quarantine." \n";
+        $body_script=$body_script."Quarantine: ".$quarantine." \r\n";
     }
     if(!empty($vaccination)){
-        $body_script=$body_script."Vaccination: ".$vaccination." \n";
+        $body_script=$body_script."Vaccination: ".$vaccination." \r\n";
     }
     if(!empty($transport)){
-        $body_script=$body_script."Public Transport :".$transport." \n";
+        $body_script=$body_script."Public Transport :".$transport." \r\n";
     }
     if(!empty($business)){
-        $body_script=$body_script."Business: ".$business." \n";
+        $body_script=$body_script."Business: ".$business." \r\n";
     }
     if(!empty($sources)){
-        $body_script=$body_script."Sources: ".$sources." \n";
+        $body_script=$body_script."Sources: ".$sources." \rn\n";
     }
     
 
-    $body_script=$body_script."Go to CoTRACK to review those reports! \n Safe Days,\n CoTRACK TEAM";
+    $body_script=$body_script."Go to CoTRACK to review those reports! \r\n Safe Days, \r\n CoTRACK TEAM";
 
-    */
-    $from=$_GET["FROM"];
-    $to=$_GET["TO"];
-    $sql="SELECT * FROM regulation WHERE regulation.FROM='$from' AND regulation.TO='$to'";
+    
+    //echo $body_script;
+    //$sql="SELECT * FROM regulation WHERE regulation.FROM='$from' AND regulation.TO='$to'";
     //echo $sql;
-    $result=mysqli_query($link, $sql);
-    $row=mysqli_fetch_row($result);
-    $id=$row[0];
+    //$result=mysqli_query($link, $sql);
+    //$row=mysqli_fetch_row($result);
+    //$id=$row[0];
     //echo $id;
 
-
+    
     $sql="SELECT * FROM admin";
     $result=mysqli_query($link,$sql);
 
@@ -118,6 +122,8 @@
     //echo 'Message has been sent';  
     $mail->clearAddresses();
     }
+    
+    header("Location: ./index.php");
 
 
 ?>

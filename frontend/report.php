@@ -24,11 +24,11 @@ if (!isset($_SESSION['username'])) {
   <div class="container">
       <img src="map_background.png" class=body_frontpage>
       <div class="boxed_report">
-      <form action="report_database.php"> <!-- needs to be updated when the correct form is available -->
+      <!--form action="report_database.php"--> <!-- needs to be updated when the correct form is available -->
       <div class="">
       <h1 style= "text-align: center; margin-bottom:-20px; left:20px; margin-left:20px;"> Report invalid information</h1>
       <p style= "text-align: center; margin-left:-5px; "><b><em>Please report the invalid information under the correct category</em></b></p>
-      <form action="report.php"> <!-- change here according to which file it is sent to to send emails -->
+      <form action="report_database.php" method="POST"> <!-- change here according to which file it is sent to to send emails -->
             <div style="float: left; display:flex; flex-direction: row;"><p style="margin-left:5px; padding-top:5px;">Departure: </p> <select name="FROM" style="top:-5px; left:-25px; height:25px; margin-top:17px;"> <!--Drop down list-->
             <?php 
             $result = mysqli_query($link,"SELECT DISTINCT regulation.FROM FROM regulation"); 
@@ -46,9 +46,9 @@ if (!isset($_SESSION['username'])) {
             } 
             ?> </select>
             </div>
-        </form>
+        <!--/form-->
         <div class="scrollbar_country" id="style">
-        <form action='report_database.php' >
+        <!--form action='report_database.php'-->
                   <div class="scroll_text_country" id="style" style= "margin-left:0px; margin-bottom:10px; height:350px; margin-top:10px;">
                     <p style='font-size:16pt; font-weight:bolder; position:relative; left:-50px; top:20px; margin-top:-20px;'>Boarding</p>
                     <textarea id="new_boarding_info" rows = "5" cols = "48" name = "new_boarding_info">

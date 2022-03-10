@@ -122,7 +122,7 @@
     //echo 'Message has been sent';  
     $mail->clearAddresses();
     }
-    
+    //unset($mail);
     header("Location: ./admin_frontpage.php?FROM=$FROM&TO=$TO");
     
     include 'close.php';
