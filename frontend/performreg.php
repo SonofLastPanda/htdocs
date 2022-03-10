@@ -51,7 +51,7 @@
     // username and user id to be encrypted
     //$username=encrypt($username);
     $useremail=encrypt($useremail);
-    $password=encrypt($password);
+    $password=password_hash($password,PASSWORD_ARGON2I);
 
     session_start();
     $_SESSION['username']=$username;
