@@ -14,7 +14,7 @@
       include 'connect.php';
 
       #To prevent unlogged in users to enter this page
-      if ((!isset($_SESSION['username'])) || ($_SESSION['admin']==TRUE)) {
+      if (!isset($_SESSION['username'])) {
       header("location: login.php");
       die();
       }
@@ -72,6 +72,7 @@
       
       <!--Displaying info about favorite countries-->
         <?php echo "<h1>$username's feed</h1>";?>
+        <button onclick="location.href = 'report.php';" id="button_admin"; class="button button_register"; style="top:-70px; left:-440px;">REPORT INVALID INFO</button>
         <div class="scrollbar">
           <div class="scroll_text" id="style">
         <?php
@@ -187,4 +188,5 @@
 
 
 </div> 
+<div class="reminder" style="width: 900px; top: 770px; left:140px;"><b>Remember!</b> When traveling, each intermediate landing can have its own restrictions and regulations, so it is a good idea to check all layovers separately beforehand.</div>
   </body>
