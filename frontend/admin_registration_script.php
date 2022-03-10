@@ -23,9 +23,9 @@
     $password=""; //admin password
 
     $mail_encrypted=encrypt($email);
-    $password_hashed=password_hash($password,PASSWORD_ARGON2I);
+    $password_encrypted=password_hash($password,PASSWORD_ARGON2I);
 
-    $sql="INSERT INTO admin (adminname, email, password) VALUES ('$adminname', '$mail_encrypted', '$password_hashed')";
+    $sql="INSERT INTO admin (adminname, email, password) VALUES ('$adminname', '$mail_encrypted', '$password_encrypted')";
 
     if(mysqli_query($link, $sql)){
         echo "Success";
