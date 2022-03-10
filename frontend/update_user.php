@@ -29,7 +29,6 @@
     $new_username=$_POST["new_username"];
     $new_email=$_POST["new_useremail"];
     $new_password=$_POST["new_userpassword"];
-    $new_confirmpassword=$_POST["new_confirmpassword"];
     $new_nationality=$_POST["new_nationality"];
     $remove_bookmark=$_POST["TO"];
 

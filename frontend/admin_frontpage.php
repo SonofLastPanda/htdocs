@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <?php
 include 'connect.php'; //Including database connection
-
+define("encryption_method", "AES-128-CBC");
+define("key", "batgirl_to_the_rescue");
 session_start();
+
 #To prevent unlogged in users to enter this page, and non-admins
 if (!isset($_SESSION['username']) || $_SESSION['admin']==FALSE) {
   header("location: login.php");
   die();
 }
 
+// decrypt data
+function decrypt($data) {
+  $key = key;
+  $c = base64_decode($data);
+  $ivlen = openssl_cipher_iv_length($cipher = encryption_method);
+  $iv = substr($c, 0, $ivlen);
+  $hmac = substr($c, $ivlen, $sha2len = 32);
+  $ciphertext_raw = substr($c, $ivlen + $sha2len);
+  $original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
+  $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+  if (hash_equals($hmac, $calcmac))
+  {
+      return $original_plaintext;
+  }
+}
+
+$username=$_SESSION['username'];
+$user_result=mysqli_query($link, "SELECT admin.email, admin.password FROM admin WHERE admin.adminname='$username'");
+
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
 $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Vaccine, regulation.Regulation, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder, regulation.Sources FROM regulation");
-include "close_db.php";
+#include "close.php";
 ?>
 <html>
   <head>
@@ -54,11 +75,14 @@ include "close_db.php";
             <br>
             <h4 style= "color:#40798C; position: relative; top: 10px;">Admin Information</h4>
             <p style= "position: relative; top: -10px; margin-bottom:-15px; left:-23px;">Edit admin information below:</p><br>
-            <form action="admin_frontpage.php">
-            <div><b><p style="text-align:left; margin-bottom:5px;">Email:</p></b><input type="text" placeholder="New Email" name="useremail" style="margin-left:0px; color:#40798C;"></div><br>
+            <?php
+            $row=mysqli_fetch_row($user_result);
+            ?>
+            <form action="update_admin.php">
+            <div><b><p style="text-align:left; margin-bottom:5px;">Email:</p></b><input type="text" placeholder="<?php echo decrypt($row[0]);?>" value="<?php echo decrypt($row[0]);?>" name="useremail" style="margin-left:0px; color:#40798C;"></div><br>
             <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Password:</p></b><input type="password" placeholder="New Password" name="userpassword" style="margin-left:0px;"></div><br>
             <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Confirm Password:</p></b><input type="password" placeholder="Confirm Password" name="confirmpassword" style="margin-left:0px;"><br>
-            <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="button button_register"; style="left:0px; top:30px;">UPDATE</button>
+            <button id="myButton" class="button button_register"; onclick="return password_validate()"; style="left:0px; top:30px;">UPDATE</button>  
             </form>
             <div>
       </div>
@@ -68,15 +92,15 @@ include "close_db.php";
         <h1> <?php echo "From: $FROM &nbsp &nbsp To: $TO &nbsp" ?></h1>
         <div class=boxed_c_l style= "background-color:#fcfaf4; border-style:dotted; left:425px; top: 214px; height: 475px; width:900px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
                <?php
-                  include 'connect.php';
-                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder,regulation.ID FROM regulation");              
+                  #include 'connect.php';
+                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder,regulation.ID, source.Source_link FROM regulation, source WHERE (source.Regulation_ID=regulation.ID)");              
                   while($row = mysqli_fetch_row($result)){ 
                   if (($row[0]=="$FROM")&&($row[1]=="$TO")){
                     // Listing all info
                     echo "<input type='hidden' name='id' value='$row[11]'/> ";
                     echo "<input type='hidden' name='from' value='$FROM'/> ";
                     echo "<input type='hidden' name='to' value='$TO'/> ";
-                    echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
+                    echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; left:440px; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
                     echo "<form>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-36px; margin-bottom:-20px;'>Boarding</p>";
                     echo "<textarea name='boarding' rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[2] </textarea>";
@@ -95,10 +119,10 @@ include "close_db.php";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminder</p>";
                     echo "<textarea name='reminder'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[10] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
-                    echo "<textarea name='sources'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[11] </textarea>";
+                    echo "<textarea name='sources'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[12] </textarea>";
                     }}
                     echo "</form>";
-                  include "close_db.php"
+                  #include "close.php"
                 ?>
         </div>
         <button id="button_admin"; class="button button_admin"; style="position:fixed; top:745px; left:850px;">UPDATE</button>
@@ -107,7 +131,7 @@ include "close_db.php";
         
 </div>
 </body>
-  <?php include "close_db.php" ?>
+  <?php include "close.php" ?>
 </div>
 </div>
 </html>

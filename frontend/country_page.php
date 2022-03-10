@@ -2,8 +2,8 @@
 include 'connect.php'; //Including database connection
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
-$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
-include "close.php"
+$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder, source.Source_link FROM regulation, source WHERE (source.Regulation_ID=regulation.ID)");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +108,7 @@ echo "There is currently no information regarding this field for this travel rou
 
 echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
 if (!empty($row[11])) {  
-  echo $row[11]; 
+  echo "<a href='$row[11]'>$row[11]</a>"; 
  }
 else {
 echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information";
@@ -118,8 +118,7 @@ echo "</div>";
 echo "</div>";
 include "close.php"
 ?>
-          }}     
-        ?>
+      
 </div>
 </div>
 </div>

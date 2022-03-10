@@ -10,6 +10,13 @@
     define("encryption_method", "AES-128-CBC");
     define("key", "batgirl_to_the_rescue");
 
+    session_start();
+
+    #To prevent unlogged in users to enter this page
+    if ((!isset($_SESSION['username'])) || ($_SESSION['admin']==TRUE)) {
+        header("location: login.php");
+        die();
+        }
    
     //include 'admin_frontpage.php';
     function decrypt($data) {
