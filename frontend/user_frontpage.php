@@ -77,13 +77,15 @@
           <div class="scroll_text" id="style">
         <?php
 
-        $sql = "SELECT * FROM regulation WHERE regulation.to IN
+        $sql = "SELECT *, source.Source_link FROM regulation,source WHERE regulation.to IN
         (SELECT country.country_name
         FROM country
         JOIN bookmark ON country.country_id = bookmark.country_id
         JOIN users ON users.user_id = bookmark.user_id
         WHERE users.username = '$username'
-        )";
+        ) AND (regulation.ID=source.Regulation_ID)";
+
+        
 
         $regulations=mysqli_query($link, $sql);
         while($row = mysqli_fetch_row($regulations)){
@@ -171,8 +173,8 @@
           }
 
           echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
-          if (!empty($row[12])) {  
-            echo $row[12]; 
+          if (!empty($row[13])) {  
+            echo "<a href='$row[13]'>$row[13]</a>"; 
           }
           else {
           echo "There is currently no information regarding this field for this travel route, please check with relevant sources for more information.";
@@ -184,9 +186,7 @@
           include "close.php"
           ?>
 
-</div></div><!-- <meta name="viewport" content="dith=device-width, initial-scale=1"> -->
-
-
+</div></div>
 </div> 
 <div class="reminder" style="width: 900px; top: 770px; left:140px;"><b>Remember!</b> When traveling, each intermediate landing can have its own restrictions and regulations, so it is a good idea to check all layovers separately beforehand.</div>
   </body>

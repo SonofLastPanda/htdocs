@@ -93,14 +93,14 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
         <div class=boxed_c_l style= "background-color:#fcfaf4; border-style:dotted; left:425px; top: 214px; height: 475px; width:900px; border-color:#E2E8E5, border-width:5px; margin-bottom:50px;">
                <?php
                   #include 'connect.php';
-                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder,regulation.ID FROM regulation");              
+                  $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Regulation,regulation.Vaccine, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder,regulation.ID, source.Source_link FROM regulation, source WHERE (source.Regulation_ID=regulation.ID)");              
                   while($row = mysqli_fetch_row($result)){ 
                   if (($row[0]=="$FROM")&&($row[1]=="$TO")){
                     // Listing all info
                     echo "<input type='hidden' name='id' value='$row[11]'/> ";
                     echo "<input type='hidden' name='from' value='$FROM'/> ";
                     echo "<input type='hidden' name='to' value='$TO'/> ";
-                    echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
+                    echo "<div class='scroll_text_country' id='style' style='position:fixed; top: 270px; float:left; left:440px; text-align:justify; height:400px; width:720px; background:#fcfaf4; margin-bottom:0px; margin-right:50px; margin-left:50px; scroll-margin-bottom: 2em;'>";
                     echo "<form>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:-36px; margin-bottom:-20px;'>Boarding</p>";
                     echo "<textarea name='boarding' rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[2] </textarea>";
@@ -119,7 +119,7 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Reminder</p>";
                     echo "<textarea name='reminder'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[10] </textarea>";
                     echo "<p style='font-size:22pt; font-weight:bolder; position:relative; left:-50px; top:20px;'>Sources</p>";
-                    echo "<textarea name='sources'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[11] </textarea>";
+                    echo "<textarea name='sources'  rows='10'; cols='95'; style='color:#40798C; font-family:'Red Hat Display'; font-size:12pt; position:relative; left:20px; top:20px; margin-bottom:-20px;'> $row[12] </textarea>";
                     }}
                     echo "</form>";
                   #include "close.php"
