@@ -21,9 +21,9 @@
       <label><b>Username:</b></label>
       <input type="text" placeholder="Enter a Fun Username" name="username" required><br><br>
       <label><b>Email:</b></label>
-      <input type="email" placeholder="Enter Email" name="useremail" required><br><br>
+      <input type="email" placeholder="Enter Email" name="useremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required><br><br>
       <label><b>Password:</b></label>
-      <input type="password" placeholder="Enter Password" name="userpassword" id="userpassword" required><br><br>
+      <input type="password" placeholder="Enter Password" name="userpassword" id="userpassword" minlength= "8"required><br><br>
       <label><b>Confirm Password:</b></label>
       <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required><br><br>
       <label for="Nationality"><b>Nationality:</b></label>
@@ -64,23 +64,6 @@
         }
         return true;
     }
- function ValidateEmail()
-{
-var inputText=document.getElementById("useremail").value;
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-alert("Valid email address!");
-document.form1.text1.focus();
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-document.form1.text1.focus();
-return false;
-}
-}
 </script>
 </html>
 <!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->
