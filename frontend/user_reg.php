@@ -1,4 +1,10 @@
 <!-- Code for the webpage in which one can register as a user.  -->
+
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,6 +33,36 @@
       <label><b>Confirm Password:</b></label>
       <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required><br><br>
       <label for="Nationality"><b>Nationality:</b></label>
+      <script>
+
+    var password = document.getElementById("userpassword")
+
+    , confirm_password = document.getElementById("confirm_password");
+
+
+
+    function validatePassword(){
+
+    if(password.value != confirm_password.value) {
+
+        confirm_password.setCustomValidity("Passwords Don't Match");
+
+    } else {
+
+        confirm_password.setCustomValidity('');
+
+        }
+
+    }
+
+
+
+    password.onchange = validatePassword;
+
+    confirm_password.onkeyup = validatePassword;
+
+    </script>
+
       <select id="nationality" name="nationality">
       <!--<option value="choose">Nationality</option>
       <option value="HongKong">Hong Kong</option>
@@ -35,16 +71,22 @@
       <!--<option value="Turkey">Türkiye</option>-->
       </select><br><br>
       <p>Please validate by submitting your CAPTCHA:</p>
-        <div class="captchabackground">
+        <!--div class="captchabackground">
         <canvas id="captcha" style="position:relative; top:-45px; left:-20px;">captcha text</canvas> </div>
         <div><p style="position: relative;top: -125px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -162px; left: 205px;"><div>
         <div><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; top:-120px;left:130px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
-        <script src="script.js"></script>
-      <p style="position:relative; top:-100px; left:-10px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue; position:relative;">Terms & Privacy</a>.</p>
+        <script src="script.js"></script-->
+
+    <input name="captchacode" type="text" name="text"style="position: relative; top: -60px; left: 125px;" required ><br>
+
+    <img style="position:relative; top:-30px; left:100px;" src="captcha/captcha.php">
+
+    <br>
+      <p style="position: relative;top: 35px; left:1px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue;">Terms & Privacy</a>.</p>
      
       <div>
-      <button type="submit" form="submit"  value="Submit"  class= "button button_register" onclick="return Validate()"; style= "margin-left:43px; top:-90px;">REGISTER</button>
+      <button type="submit" form="submit"  value="Submit"  class= "button button_register" style= "margin-left:43px; top:-60px;">REGISTER</button>
       </div>
       </div>
       </div>
@@ -54,33 +96,5 @@
   </body>
 </div>
 </div>
-<script type="text/javascript">
-  function Validate() {
-        var password = document.getElementById("userpassword").value;
-        var confirmPassword = document.getElementById("confirm_password").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
-     function ValidateEmail()
-{
-var inputText=document.getElementById("useremail").value;
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-alert("Valid email address!");
-document.form1.text1.focus();
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-document.form1.text1.focus();
-return false;
-}
-}
-</script>
 </html>
 <!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->
