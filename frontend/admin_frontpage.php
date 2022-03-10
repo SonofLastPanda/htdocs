@@ -81,8 +81,8 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
             ?>
             <form action="update_admin.php" method="POST" id="submit">
             <div><b><p style="text-align:left; margin-bottom:5px;">Email:</p></b><input type="text" placeholder="<?php echo decrypt($row[0]);?>" value="<?php echo decrypt($row[0]);?>" name="useremail" style="margin-left:0px; color:#40798C;"></div><br>
-            <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Password:</p></b><input type="password" placeholder="New Password" name="userpassword" style="margin-left:0px;"></div><br>
-            <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Confirm Password:</p></b><input type="password" placeholder="Confirm Password" name="confirmpassword" style="margin-left:0px;"><br>
+            <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Password:</p></b><input id="userpassword" type="password" placeholder="New Password" name="userpassword" style="margin-left:0px;"></div><br>
+            <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Confirm Password:</p></b><input id="confirmpassword" type="password" placeholder="Confirm Password" name="confirmpassword" style="margin-left:0px;"><br>
             <button id="myButton" type="submit" form="submit" value="Submit" class="button button_register"; onclick="return password_validate()"; style="left:0px; top:30px;">UPDATE</button>  
     
           </form>
@@ -138,8 +138,8 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
 </div>
 <script type="text/javascript">
     function password_validate() {
-        var password = document.getElementById("new_userpassword").value;
-        var confirmPassword = document.getElementById("new_confirmpassword").value;
+        var password = document.getElementById("userpassword").value;
+        var confirmPassword = document.getElementById("confirmpassword").value;
         if (password != confirmPassword) {
             alert("Passwords do not match.");
             return false;
