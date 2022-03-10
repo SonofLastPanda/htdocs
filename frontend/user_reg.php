@@ -55,15 +55,23 @@
 </div>
 </div>
 <script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("userpassword").value;
-        var confirmPassword = document.getElementById("confirm_password").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
+     function ValidateEmail()
+{
+var inputText=document.getElementById("useremail").value;
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+alert("Valid email address!");
+document.form1.text1.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.form1.text1.focus();
+return false;
+}
+}
 </script>
 </html>
 <!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->
