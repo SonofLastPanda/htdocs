@@ -136,4 +136,15 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
   <?php include "close.php" ?>
 </div>
 </div>
+<script type="text/javascript">
+    function password_validate() {
+        var password = document.getElementById("new_userpassword").value;
+        var confirmPassword = document.getElementById("new_confirmpassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 </html>
