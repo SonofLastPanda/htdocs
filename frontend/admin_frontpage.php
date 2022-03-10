@@ -28,7 +28,7 @@ function decrypt($data) {
 }
 
 $username=$_SESSION['username'];
-$user_result=mysqli_query($link, "SELECT admin.email, admin.password FROM admin WHERE admin.adminname='$username'");
+$user_result=mysqli_query($link, "SELECT admin.email FROM admin WHERE admin.adminname='$username'");
 
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];

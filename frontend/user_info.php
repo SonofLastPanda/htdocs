@@ -64,9 +64,9 @@ $result=mysqli_query($link, "SELECT users.email, users.password FROM users WHERE
       <label><b>Email: </b></label>
       <input type="text" placeholder="<?php echo decrypt($row[0]);?>" name="new_useremail" value="<?php echo decrypt($row[0]);?>"><br><br>
       <label><b>Password:</b></label>
-      <input type="password" placeholder="Enter New Password" name="new_userpassword" id="new_userpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
+      <input type="password" placeholder="Enter New Password" name="new_userpassword" id="new_userpassword" value="<?php $row[1];?>"><br><br>
       <label><b>Confirm Password:</b></label>
-      <input type="password" placeholder="Confirm  Password" name="new_confirmpassword" id="new_confirmpassword" value="<?php echo decrypt($row[1]);?>"><br><br>
+      <input type="password" placeholder="Confirm  Password" name="new_confirmpassword" id="new_confirmpassword" value="<?php $row[1];?>"><br><br>
       <label for="Nationality"><b>Nationality:</b></label>
       <select id="nationality" name="nationality">
       <option value="Sweden">Sweden</option>
