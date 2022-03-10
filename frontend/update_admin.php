@@ -35,10 +35,13 @@
     $queries_ok=TRUE;
 
     $en_email=encrypt($new_email);
-    $en_password=password_hash($new_password,PASSWORD_ARGON2I);
 
-    mysqli_query($link, "UPDATE admin SET password='$en_password', email='$en_email' WHERE adminname='$username'") ? null: $queries_ok=FALSE;
-
+    if (isset($new_password)) {
+        $en_password=password_hash($new_password,PASSWORD_ARGON2I);
+        mysqli_query($link, "UPDATE admin SET password='$en_password', email='$en_email' WHERE adminname='$username'") ? null: $queries_ok=FALSE;
+    } else {
+        mysqli_query($link, "UPDATE admin SET email='$en_email' WHERE adminname='$username'") ? null: $queries_ok=FALSE;
+    }
     //Commit Transactionn
     if ($queries_ok) {
         mysqli_commit($link);
@@ -46,7 +49,6 @@
         echo "Commit transaction failed";
         mysqli_rollback($link);
         exit();
-    }
     }
 
     include 'close.php';

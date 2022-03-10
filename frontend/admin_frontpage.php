@@ -28,11 +28,12 @@ function decrypt($data) {
 }
 
 $username=$_SESSION['username'];
-$user_result=mysqli_query($link, "SELECT admin.email FROM admin WHERE admin.adminname='$username'");
+$user_result=mysqli_query($link, "SELECT admin.email, admin.password FROM admin WHERE admin.adminname='$username'");
 
 $FROM = $_GET["FROM"];
 $TO = $_GET["TO"];
-$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Vaccine, regulation.Regulation, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder, regulation.Sources FROM regulation");
+$result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.Boarding, regulation.Qurantine, regulation.Vaccine, regulation.Regulation, regulation.Face_Mask, regulation.Public_Transportation, regulation.Businesses, regulation.Restaurants, regulation.Reminder FROM regulation");
+
 #include "close.php";
 ?>
 <html>
@@ -78,12 +79,13 @@ $result = mysqli_query($link,"SELECT regulation.FROM, regulation.TO, regulation.
             <?php
             $row=mysqli_fetch_row($user_result);
             ?>
-            <form action="update_admin.php">
+            <form action="update_admin.php" method="POST" id="submit">
             <div><b><p style="text-align:left; margin-bottom:5px;">Email:</p></b><input type="text" placeholder="<?php echo decrypt($row[0]);?>" value="<?php echo decrypt($row[0]);?>" name="useremail" style="margin-left:0px; color:#40798C;"></div><br>
             <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Password:</p></b><input type="password" placeholder="New Password" name="userpassword" style="margin-left:0px;"></div><br>
             <div><b><p style="text-align:left; margin-bottom:5px; margin-top:5px;">Confirm Password:</p></b><input type="password" placeholder="Confirm Password" name="confirmpassword" style="margin-left:0px;"><br>
-            <button id="myButton" class="button button_register"; onclick="return password_validate()"; style="left:0px; top:30px;">UPDATE</button>  
-            </form>
+            <button id="myButton" type="submit" form="submit" value="Submit" class="button button_register"; onclick="return password_validate()"; style="left:0px; top:30px;">UPDATE</button>  
+    
+          </form>
             <div>
       </div>
     </div>
