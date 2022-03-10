@@ -37,7 +37,7 @@ if (!isset($_SESSION['username'])) {
             print "<option>$catname</option>"; 
             }  
             ?> </select></div>
-            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:32px; padding-top:5px;">Destination: </p> <select name="TO" style="top:-5px; left:-25px; height:25px; margin-top:17px;"> <!--Drop down list -->
+            <div style="float: left; display:flex; flex-direction: row;"><p style="padding-left:12px; padding-top:5px;">Destination: </p> <select name="TO" style="top:-5px; left:-25px; height:25px; margin-top:17px;"> <!--Drop down list -->
             <?php 
             $result2 = mysqli_query($link,"SELECT DISTINCT regulation.TO FROM regulation"); 
             while($row2 = mysqli_fetch_assoc($result2)) { 
