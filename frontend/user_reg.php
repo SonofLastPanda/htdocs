@@ -38,13 +38,12 @@
         <div class="captchabackground">
         <canvas id="captcha" style="position:relative; top:-45px; left:-20px;">captcha text</canvas> </div>
         <div><p style="position: relative;top: -125px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -162px; left: 205px;"><div>
-        <div><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; top:-120px;left:130px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
         <script src="script.js"></script>
       <p style="position:relative; top:-100px; left:-10px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue; position:relative;">Terms & Privacy</a>.</p>
      
       <div>
-      <button type="submit" form="submit"  value="Submit"  class= "button button_register" onclick="return Validate()"; style= "margin-left:43px; top:-90px;">REGISTER</button>
+      <button id="submitButton" type="submit" form="submit"  value="Submit"  class= "button button_register" onclick="return Validate()"; style= "margin-left:43px; top:-90px;">REGISTER</button>
       </div>
       </div>
       </div>
@@ -64,6 +63,23 @@
         }
         return true;
     }
+ function ValidateEmail()
+{
+var inputText=document.getElementById("useremail").value;
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+alert("Valid email address!");
+document.form1.text1.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.form1.text1.focus();
+return false;
+}
+}
 </script>
 </html>
 <!-- style="position: relative; top: -45px; font-family: 'Red Hat Display';" -->
