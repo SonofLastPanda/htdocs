@@ -10,3 +10,5 @@ mysqli_begin_transaction($link);
             mysqli_rollback($link);
             echo $e -> getmessage();
         }
+///replace with the if-else statement where the insert query is excuted in performreg and admin reg.php 
+//I am not editing the code rn for the practice presentation but t works correctly i have implemented it.
