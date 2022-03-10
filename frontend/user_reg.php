@@ -44,7 +44,7 @@
       <p style="position:relative; top:-100px; left:-10px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue; position:relative;">Terms & Privacy</a>.</p>
      
       <div>
-      <button type="submit" form="submit"  value="Submit"  class= "button button_register" onclick="return Validate()"; style= "margin-left:43px; top:-90px;">REGISTER</button>
+      <button id="submitButton" type="submit" form="submit"  value="Submit"  class= "button button_register" onclick="return Validate()"; style= "margin-left:43px; top:-90px;">REGISTER</button>
       </div>
       </div>
       </div>
