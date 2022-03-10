@@ -86,7 +86,7 @@ session_start();
       <p style="position: relative;top: 35px; left:1px;">By creating an account you agree to our <a href="terms.php" style="color:dodgerblue;">Terms & Privacy</a>.</p>
      
       <div>
-      <button type="submit" form="submit"  value="Submit"  class= "button button_register" style= "margin-left:43px; top:-60px;">REGISTER</button>
+      <button type="submit" form="submit"  value="Submit"  class= "button button_register"  onclick="return validatePassword()" style= "margin-left:43px; top:-60px;">REGISTER</button>
       </div>
       </div>
       </div>
