@@ -77,18 +77,20 @@
         mysqli_autocommit($link,TRUE);
     
         //SQL Queries to insert data
-        mysqli_begin_transaction($link);
-        try{
-            mysqli_query($link,"INSERT INTO users (username, email, password, citizenship) VALUES ('$username', '$useremail, '$password','$citizenship')");
-            mysqli_commit($link);    
-        }
+        mysqli_query($link,"INSERT INTO users (username, email, password, citizenship) VALUES ('$username', '$useremail', '$password','$citizenship')");
+       // mysqli_query($link,"INSERT INTO Vaccination_Info (user_id,vaccination_name,vaccination_dose ) VALUES ('$username', '$vaccinetype', '$vaccinedoses')");
+        //if(mysqli_multi_query($link, $sql))
+        //{
+        //echo "Records inserted successfully.";
+        //}   
+        
     
-
-        catch(PDOException $e)
-        {
-            mysqli_rollback($link);
-            echo $e -> getmessage();
-        }
+        //Commit Transactionn
+        if (!mysqli_commit($link)) {
+        echo "Commit transaction failed";
+        mysqli_rollback($link);
+        exit();
+    }
         header("location: user_frontpage.php");
         // Close connection
         }
