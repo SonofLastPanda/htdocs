@@ -29,7 +29,7 @@
     $new_email=$_POST["useremail"];
     $new_password=$_POST["userpassword"];
 
-    header("location: admin_frontpage.php");
+    //header("location: admin_frontpage.php");
     #Transaction to update database
     mysqli_autocommit($link, FALSE);
     $queries_ok=TRUE;
@@ -45,6 +45,9 @@
     //Commit Transactionn
     if ($queries_ok) {
         mysqli_commit($link);
+        echo "<script type='text/javascript'>alert('Your information has been changed!');</script>";
+        header('refresh:0.2;url=admin_frontpage.php');
+
     } else {
         echo "Commit transaction failed";
         mysqli_rollback($link);
