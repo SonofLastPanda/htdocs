@@ -81,7 +81,7 @@
         $body_script=$body_script."Business: ".$business." \r\n";
     }
     if(!empty($sources)){
-        $body_script=$body_script."Sources: ".$sources." \rn\n";
+        $body_script=$body_script."Sources: ".$sources." \r\n";
     }
     
 
