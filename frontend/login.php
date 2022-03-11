@@ -1,4 +1,9 @@
 <!-- Code for the webpage in which one can register as a user.  -->
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +16,7 @@
   <div class="container">
   <img src="map_background.png" class=body_frontpage>
     <div class= "boxed_login">
-      <form action="perform_login.php" method="POST">
+      <form action="./perform_login.php" method="POST">
       <div>
       <h1 style= "text-align: center; margin-right:10px;">Login</h1>
       <p>Please fill in the form below:</p>
@@ -20,15 +25,20 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required><br>
         <p>Please validate by submitting your CAPTCHA:</p>
-        <canvas id="captcha" style="position: relative; top: -35px;">captcha text</canvas>
+        <!--canvas id="captcha" style="position: relative; top: -35px;">captcha text</canvas>
         <div><p style="position: relative;top: -95px; left:1px;">Enter CAPTCHA here:</p><input id="textBox" type="text" name="text"style="position: relative; top: -134px; left: 205px;"><div>
         <div><button id="refreshButton" type="submit" class= "button button_register" style="position:relative; left:130px; top:-110px;">REFRESH CAPTCHA</button></div>
         <span id="output"></span>
-        <script src="script.js"></script>
-        <!-- <span class="psw" style= "font-family: 'Red Hat Display'; color: #77A6B6; text-align:center;">Forgot <a href="#">password?</a></span> -->
-        <button onclick="location.href = 'perform_login.php';" id="myButton" class="button button_register"; style= "margin-left:52px; position: relative; top:-105px;">LOGIN</button>
-      </div>
-      </div>
+        <script src="script.js"></script-->
+        <input name="captchacode" type="text" name="text"style="position: relative; top: -10px; left: 125px;" required ><br>
+
+    <img style="position:relative; top:0px; left:100px;" src="captcha/captcha.php">
+
+    <br>
+     
+    
+      <button name="submit" id="myButton" type="submit" class= "button button_register" style= "margin-left:43px; top:0px;">LOGIN</button>
+</div>
       </form>
     </div>
   </div>

@@ -27,11 +27,11 @@ function decrypt($data) {
   }
 }
 
-#Check if connection to database is established 
-if (!$link) {
-  echo "Error: Unable to connect to MySQL." . mysqli_connect_error() . PHP_EOL;
-  exit;
-}
+//echo $_POST['captchacode'];
+//echo $_SESSION['captchacode'];
+
+if(($_POST['captchacode']) == $_SESSION['captchacode']) { // Do process the other submitted form data
+
 
 $uname=$_POST["username"];
 $psw=$_POST["psw"];
@@ -81,4 +81,19 @@ window.location='login.php';
 }
 
 include 'close.php';
+
+}
+else{
+  
+  echo "<script type='text/javascript'>alert('Wrong captcha code, please try again!');
+  window.location='login.php';
+  </script>";
+
+
+
+  //header('refresh:1;url=./user_reg.php');
+
+  exit();
+}
+
 ?>

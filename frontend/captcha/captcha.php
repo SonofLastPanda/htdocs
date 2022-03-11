@@ -46,15 +46,15 @@ for ($i = 0; $i < 10; $i++) {
     $color = $greys[rand(1, 4)];
     imagedashedline( $image, rand(1,249),rand(1,59),rand(1,249),(rand(1,59)),$color);
 }
-
+/*
 // Draws 10 arcs on the image
 for ($i = 0; $i < 10; $i++) {
     $color = $greys[rand(1, 4)];
     imagearc( $image, rand(1,249),rand(1,59),rand(1,249),(rand(1,59)), rand(0,360), rand(0,360) , $color);
 }
-
+*/
 // Imports the fonts and adds them to an array
-$fonts = ['arial.ttf', 'toon.ttf', 'segoe.ttf'];
+$fonts = ['arial.ttf', 'segoe.ttf'];
 
 //Settings for the captcha string
 $min_row_length = 6;
